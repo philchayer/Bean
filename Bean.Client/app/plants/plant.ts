@@ -6,7 +6,7 @@ interface IPlant {
     id: number;
     name: string;
     latinName: string;
-    FamilyId: number;
+    familyId: number;
     family: string;
     binder: string;
     plantingIn: Date;
@@ -20,8 +20,8 @@ interface IPlant {
     comment: string;
     coldHardy: boolean;
     quantityOnHand: number;
-    CompanionPlants: Plant[],
-    HarmfulPlants: Plant[],
+    companionPlants: Plant[],
+    harmfulPlants: Plant[],
     status: number;
 }
 
@@ -32,7 +32,7 @@ export class Plant implements IPlant, IBaseObject {
     id = 0;
     name = "";
     latinName = "";
-    FamilyId = 0;
+    familyId = 0;
     family = "";
     binder = "";
     plantingIn = new Date();
@@ -46,8 +46,8 @@ export class Plant implements IPlant, IBaseObject {
     comment: string;
     coldHardy: boolean;
     quantityOnHand = 0;
-    CompanionPlants = new Plant[0]();
-    HarmfulPlants = new Plant[0]();
+    companionPlants = new Plant[0]();
+    harmfulPlants = new Plant[0]();
     status = 0;
 
     constructor() { }

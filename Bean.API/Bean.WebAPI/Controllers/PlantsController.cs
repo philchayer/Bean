@@ -36,10 +36,31 @@ namespace Bean.WebAPI.Controllers
             return plants;
         }
 
-        // GET: api/Plants/5
-        public string Get(int id)
+        // GET: api/Plants/search?strign
+        [HttpGet]
+        public IEnumerable<DTO_Plants> Get(string search)
         {
-            return "value";
+            var plants = dbContext.Plants
+                            .Select(
+                                plant => new DTO_Plants()
+                                {
+                                    Id = plant.Id,
+                                    Name = plant.Name,
+                                    LatinName = plant.LatinName,
+                                    Family = plant.Family.Name,
+                                    Binder = plant.Family.Binder.Description
+                                })
+                            .Where(plant => plant.Family.Contains(search));
+
+            return plants;
+        }
+
+        // GET: api/Plants/5
+        public Plant Get(int id)
+        {
+            var plant = dbContext.Plants.FirstOrDefault(p => p.Id == id);
+
+            return plant;
         }
 
         // POST: api/Plants

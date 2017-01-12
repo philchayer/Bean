@@ -32,9 +32,9 @@
             </thead>
             <tbody>
                 <tr *ngFor='let plant of dto_plants | plantFilter: listFilter' [routerLink]="['/plant', plant.id]">
-                    <td>{{ plant.Name }}</td>
-                    <td>{{ plant.LatinName }}</td>
-                    <td>{{ plant.Family }}</td>
+                    <td>{{ plant.name }}</td>
+                    <td>{{ plant.latinName }}</td>
+                    <td>{{ plant.family }}</td>
                     <!--<td class="text-center"><input type="checkbox" [checked]='plant.coldHardy'></td>
                     <td class="text-right">{{ plant.quantityOnHand }}</td>-->
                 </tr>

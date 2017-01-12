@@ -45,26 +45,46 @@ namespace Bean.DAL.Migrations
                         Status = Status.Enabled
                     });
 
-                //add or update one family
-                Family family = new Family()
+                //add or update families
+                Family Solanaceae = new Family()
                 {
                     Id = 1,
                     BinderId = 3,
                     Name = "Solanaceae",
                     Status = Status.Enabled
                 };
-                
-                context.Families.AddOrUpdate(f => f.Id, family);
+                context.Families.AddOrUpdate(f => f.Id, Solanaceae);
 
-                //add or update one plant
+                Family Brassicaceae = new Family()
+                {
+                    Id = 2,
+                    Name = "Brassicaceae",
+                    Status = Status.Enabled
+                };
+                context.Families.AddOrUpdate(f => f.Id, Brassicaceae);
+
+                //add or update plants
                 context.Plants.AddOrUpdate(plant => plant.Id,
                     new Plant()
                     {
                         Id = 1,
                         FamilyId = 1,
-                        Family = family,
+                        Family = Solanaceae,
                         Name = "Tomate cerise 'Honeybee'",
                         PlantingIN = new DateTime(2016, 03, 25),
+                        Status = Status.Enabled
+                    });
+
+                context.Plants.AddOrUpdate(plant => plant.Id,
+                    new Plant()
+                    {
+                        Id = 2,
+                        FamilyId = 2,
+                        Family = Brassicaceae,
+                        Name = "Chou 'Loughton'",
+                        DistanceBetweenPlants = 18,
+                        DistanceBetweenRows = 24,
+                        IsColdHardy = true,
                         Status = Status.Enabled
                     });
 

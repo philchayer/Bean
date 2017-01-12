@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Plant } from './plant';
-import { DTO_Plant } from './dto_plant';
+import { IDTO_Plant } from './dto_plant';
 import { PlantService } from './plant.service';
 
 @Component({
@@ -13,7 +13,7 @@ export class PlantListComponent implements OnInit {
     pageTitle: string = 'Seeds and plants list';
     listFilter: string;
     plants: Plant[];
-    dto_plants: DTO_Plant[];
+    dto_plants: IDTO_Plant[];
     errorMessage: string;
 
     constructor(private _plantService: PlantService) { }
@@ -23,7 +23,7 @@ export class PlantListComponent implements OnInit {
             .subscribe(plants => this.dto_plants = plants,
             error => this.errorMessage = <any>error);
 
-        console.log('plantlist gets_dto_plants: ' + this.dto_plants);
+        console.log('plant-list.component.ngOnInit, gets_dto: ' + this.dto_plants);
     }
 
 }
