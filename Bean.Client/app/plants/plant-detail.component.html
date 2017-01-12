@@ -6,90 +6,90 @@
             <!--<span class="glyphicons glyphicons-snowflake"></span>-->
             {{plant.isNew == true ? "Adding new plant..." : plant.name}}
             <span class="badge" style="margin-left: 10px"> {{plant.quantityOnHand}} </span>
-<button type="button" class="close" aria-label="Close" (click)='onBack()'>
-            <span aria-hidden="true">&times;</span>
-        </button>
-</div>
-</div>
-
-<div class="panel-body">
-    <div class="form-horizontal">
-        <div class="form-group">
-            <label for="name" class="col-md-2 control-label">Name</label>
-            <div class="col-md-4">
-                <input id="name" type="text" maxlength="50" class="form-control"  [(ngModel)]='plant.name' />
-            </div>
-            <label for="name" class="col-md-2 control-label">Latin name</label>
-            <div class="col-md-4">
-                <input id="name" type="text" maxlength="50" class="form-control"  [(ngModel)]='plant.latinName' />
-            </div>
+            <button type="button" class="close" aria-label="Close" (click)='onBack()'>
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
+    </div>
 
-        <div class="form-group">
-            <label for="name" class="col-md-2 control-label">Family</label>
-            <div class="col-md-4">
-                <input id="name" type="text" class="form-control"  [(ngModel)]='plant.family' />
+    <div class="panel-body">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label for="name" class="col-md-2 control-label">Name</label>
+                <div class="col-md-4">
+                    <input id="name" type="text" maxlength="50" class="form-control" [(ngModel)]='plant.name' />
+                </div>
+                <label for="name" class="col-md-2 control-label">Latin name</label>
+                <div class="col-md-4">
+                    <input id="name" type="text" maxlength="50" class="form-control" [(ngModel)]='plant.latinName' />
+                </div>
             </div>
-            <label for="name" class="col-md-2 control-label">Planting IN</label>
-            <div class="col-md-4">
-                <input id="name" type="date" class="form-control"  [(ngModel)]='plant.plantingIn' />
-            </div>
-        </div>
 
-        <div class="form-group">
-            <label for="name" class="col-md-2 control-label">Direct OUT</label>
-            <div class="col-md-4">
-                <input id="name" type="date" class="form-control"  [(ngModel)]='plant.directOut' />
+            <div class="form-group">
+                <label for="name" class="col-md-2 control-label">Family</label>
+                <div class="col-md-4">
+                    <input id="name" type="text" class="form-control" [(ngModel)]='plant.family' />
+                </div>
+                <label for="name" class="col-md-2 control-label">Planting IN</label>
+                <div class="col-md-4">
+                    <input id="name" type="date" class="form-control" [(ngModel)]='plant.plantingIn' />
+                </div>
             </div>
-            <label for="name" class="col-md-2 control-label">Transplant OUT</label>
-            <div class="col-md-4">
-                <input id="name" type="date" class="form-control"  [(ngModel)]='plant.transplantOut' />
-            </div>
-        </div>
 
-        <div class="form-group">
-            <label for="name" class="col-md-2 control-label">Direct GHouse Summer</label>
-            <div class="col-md-4">
-                <input id="name" type="date" class="form-control"  [(ngModel)]='plant.directGHSummer' />
+            <div class="form-group">
+                <label for="name" class="col-md-2 control-label">Direct OUT</label>
+                <div class="col-md-4">
+                    <input id="name" type="date" class="form-control" [(ngModel)]='plant.directOut' />
+                </div>
+                <label for="name" class="col-md-2 control-label">Transplant OUT</label>
+                <div class="col-md-4">
+                    <input id="name" type="date" class="form-control" [(ngModel)]='plant.transplantOut' />
+                </div>
             </div>
-            <label for="name" class="col-md-2 control-label">Direct GHouse Winter</label>
-            <div class="col-md-4">
-                <input id="name" type="date" class="form-control"  [(ngModel)]='plant.directGHWinter' />
-            </div>
-        </div>
 
-        <div class="form-group">
-            <label for="name" class="col-sm-3 col-md-2 control-label">Distance Between Plants</label>
-            <div class="col-sm-2">
-                <input id="name" type="number" min="0" class="form-control"  [(ngModel)]='plant.distanceBetweenPlants' />
+            <div class="form-group">
+                <label for="name" class="col-md-2 control-label">Direct GHouse Summer</label>
+                <div class="col-md-4">
+                    <input id="name" type="date" class="form-control" [(ngModel)]='plant.directGHSummer' />
+                </div>
+                <label for="name" class="col-md-2 control-label">Direct GHouse Winter</label>
+                <div class="col-md-4">
+                    <input id="name" type="date" class="form-control" [(ngModel)]='plant.directGHWinter' />
+                </div>
             </div>
-            <label for="name" class="col-sm-3 col-sm-offset-1 col-md-2 col-md-offset-2 control-label">Distance Between Rows</label>
-            <div class="col-sm-2">
-                <input id="name" type="number" min="0" class="form-control"  [(ngModel)]='plant.distanceBetweenRows' />
-            </div>
-        </div>
 
-        <div class="form-group">
-            <label for="name" class="col-sm-3 col-md-2 control-label">Yield</label>
-            <div class="col-sm-2">
-                <input id="name" type="number" class="form-control" [(ngModel)]='plant.yield' />
+            <div class="form-group">
+                <label for="name" class="col-sm-3 col-md-2 control-label">Distance Between Plants</label>
+                <div class="col-sm-2">
+                    <input id="name" type="number" min="0" class="form-control" [(ngModel)]='plant.distanceBetweenPlants' />
+                </div>
+                <label for="name" class="col-sm-3 col-sm-offset-1 col-md-2 col-md-offset-2 control-label">Distance Between Rows</label>
+                <div class="col-sm-2">
+                    <input id="name" type="number" min="0" class="form-control" [(ngModel)]='plant.distanceBetweenRows' />
+                </div>
             </div>
-            <label for="name" class="col-sm-3 col-sm-offset-1 col-md-2 col-md-offset-2 control-label">Cold Hardy</label>
-            <div class="col-sm-1 checkbox">
-                <input id="chkColdHardy" type="checkbox" class="" [(checked)]='plant.coldHardy' />
-            </div>
-        </div>
 
-        <div class="form-group">
-            <label for="name" class="col-md-2 control-label">Comment</label>
-            <div class="col-md-10">
-                <textarea id="name" type="text" class="form-control" rows="3" maxlength="500" [(ngModel)]='plant.comment'></textarea>
+            <div class="form-group">
+                <label for="name" class="col-sm-3 col-md-2 control-label">Yield</label>
+                <div class="col-sm-2">
+                    <input id="name" type="number" class="form-control" [(ngModel)]='plant.yield' />
+                </div>
+                <label for="name" class="col-sm-3 col-sm-offset-1 col-md-2 col-md-offset-2 control-label">Cold Hardy</label>
+                <div class="col-sm-1 checkbox">
+                    <input id="chkColdHardy" type="checkbox" class="" [(checked)]='plant.coldHardy' />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="name" class="col-md-2 control-label">Comment</label>
+                <div class="col-md-10">
+                    <textarea id="name" type="text" class="form-control" rows="3" maxlength="500" [(ngModel)]='plant.comment'></textarea>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="panel-footer text-right">
-    <a class="btn btn-info" (click)='onBack()' style="width: 80px;"><i class="glyphicon glyphicon-chevron-left"></i> Back</a>
-<a class="btn btn-success text-right" (click)='onSave(plant)' style="width: 80px;"><i class="glyphicon glyphicon glyphicon-floppy-disk"></i> Save</a>
-</div>
+    <div class="panel-footer text-right">
+        <a class="btn btn-info" (click)='onBack()' style="width: 80px;"><i class="glyphicon glyphicon-chevron-left"></i> Back</a>
+        <a class="btn btn-success text-right" (click)='onSave(plant)' style="width: 80px;"><i class="glyphicon glyphicon glyphicon-floppy-disk"></i> Save</a>
+    </div>
 </div>
