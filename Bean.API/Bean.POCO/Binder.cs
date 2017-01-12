@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Bean.POCO
 {
     [DataContract(IsReference = true)]
-    public class Binder
+    public class Binder : BasePOCO
     {
         [DataMember]
         [Key]

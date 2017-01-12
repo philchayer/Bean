@@ -8,7 +8,7 @@ namespace Bean.DAL
         #region constants
 
         private const string DB_NAME = "Bean";
-
+        
         #endregion constants
 
         #region properties
@@ -32,12 +32,6 @@ namespace Bean.DAL
 
         #region private methods
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.HasDefaultSchema("pla");
-
-            base.OnModelCreating(modelBuilder);
-        }
 
         #endregion  private methods
 

@@ -7,7 +7,7 @@ using System.Runtime.Serialization;
 namespace Bean.POCO
 {
     [DataContract(IsReference = true)]
-    public class Plant
+    public class Plant : BasePOCO
     {
         [DataMember]
         [Key]

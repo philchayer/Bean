@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BasePOCO.cs" />
     <Compile Include="Enums\Status.cs" />
     <Compile Include="Binder.cs" />
     <Compile Include="Family.cs" />

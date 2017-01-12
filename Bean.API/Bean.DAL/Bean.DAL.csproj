@@ -74,6 +74,14 @@
     <Compile Include="Migrations\201701101652174_RemoveBinderName.Designer.cs">
       <DependentUpon>201701101652174_RemoveBinderName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701121923236_NewFieldIsNew.cs" />
+    <Compile Include="Migrations\201701121923236_NewFieldIsNew.Designer.cs">
+      <DependentUpon>201701121923236_NewFieldIsNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701121927071_RemovedDefaultSchema.cs" />
+    <Compile Include="Migrations\201701121927071_RemovedDefaultSchema.Designer.cs">
+      <DependentUpon>201701121927071_RemovedDefaultSchema.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="BeanContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -106,6 +114,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701101652174_RemoveBinderName.resx">
       <DependentUpon>201701101652174_RemoveBinderName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701121923236_NewFieldIsNew.resx">
+      <DependentUpon>201701121923236_NewFieldIsNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701121927071_RemovedDefaultSchema.resx">
+      <DependentUpon>201701121927071_RemovedDefaultSchema.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
