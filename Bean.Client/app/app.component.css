@@ -1,0 +1,102 @@
+li {
+    font-size: large;
+}
+
+header a {
+    color:#eee;
+}
+
+#navcontainer {
+    background-color: #333;
+}
+
+#navcontainer a:hover {
+    background-color: #555;
+}
+
+body {
+    background-color: #211e1e;
+    color: #eee;
+    font-family: "Source Sans Pro", Calibri, Candara, Arial, sans-serif;
+}
+
+th {
+    background-color: #454242;
+    vertical-align: bottom;
+}
+
+tr {
+    background-color: #5c5858;
+    color: #eee;
+    font-size: 1.3em;
+}
+
+tr:hover td {
+    background-color: #454242;
+    cursor: pointer;
+}
+
+.table > thead > tr > th, .table > tbody > tr > th,
+.table > tfoot > tr > th, .table > thead > tr > td,
+.table > tbody > tr > td, .table > tfoot > tr > td {
+    border-top: 5px solid #333131;
+}
+
+.panel {
+    margin-bottom: 5px;
+}
+
+.panel-primary {
+     border-color: #77b300;
+}
+
+.panel-primary {
+    border-color: #454242;
+}
+
+.panel-primary > .panel-heading {
+    color: #eee;
+    background-color: #77b300;
+    border-color: #77b300;
+    font-size: x-large;
+}
+
+.panel-body {
+    background-color: #333131;
+}
+
+.panel-footer {
+    background-color:#454242;
+    border:none;
+    margin-top: 5px;
+}
+
+.panel-footer .btn {
+    font-size: 1.2em;
+}
+
+button.close {
+    font-size: 1.1em;
+    filter: alpha(opacity=70);
+    opacity: .7;
+    text-shadow: none;
+}
+
+.btn {
+    margin-left: 15px;
+    font-size: 1.2em;
+}
+
+.form-control {
+    color: #eee;
+    background-color: #454242;
+    border: 1px solid #333;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.checkbox input[type="checkbox"] {
+    margin-left: 0px;
+}

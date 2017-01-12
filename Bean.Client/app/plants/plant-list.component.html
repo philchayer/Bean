@@ -1,0 +1,44 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        {{pageTitle}}
+    </div>
+</div>
+
+<div class='panel-body'>
+    <div class="form-horizontal">
+        <div class='form-group'>
+            <label for="inputFilter" class="col-md-1 control-label">Filter by</label>
+            <div class='col-md-4'>
+                <input type='text' id="inputFilter" [(ngModel)]='listFilter' class="form-control" />
+            </div>
+            <div class="col-md-2 col-md-offset-5">
+                <a class="btn btn-info text-right" [routerLink]="['/plant', new]"><i class="glyphicon glyphicon glyphicon-plus"></i> Add new plant</a>
+            </div>
+        </div>
+    </div>
+
+    <div class='has-error' *ngIf='errorMessage'>{{errorMessage}}</div>
+
+    <div class='table-responsive'>
+        <table class='table' *ngIf='dto_plants && dto_plants.length'>
+            <thead>
+                <tr>
+                    <th class="col-md-4">Plant</th>
+                    <th class="col-md-4">Latin name</th>
+                    <th class="col-md-2">Family</th>
+                    <!--<th class="col-md-1 text-center">Cold Hardy</th>
+                    <th class="col-md-1 text-right">Quantity On Hand</th>-->
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let plant of dto_plants | plantFilter: listFilter' [routerLink]="['/plant', plant.id]">
+                    <td>{{ plant.Name }}</td>
+                    <td>{{ plant.LatinName }}</td>
+                    <td>{{ plant.Family }}</td>
+                    <!--<td class="text-center"><input type="checkbox" [checked]='plant.coldHardy'></td>
+                    <td class="text-right">{{ plant.quantityOnHand }}</td>-->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

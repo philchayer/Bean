@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E97DEDCE-EDB1-45F2-8CE9-F96B07092A85}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bean.DAL</RootNamespace>
+    <AssemblyName>Bean.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Migrations\201701091812026_Initial.cs" />
+    <Compile Include="Migrations\201701091812026_Initial.Designer.cs">
+      <DependentUpon>201701091812026_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701091857193_Schema.cs" />
+    <Compile Include="Migrations\201701091857193_Schema.Designer.cs">
+      <DependentUpon>201701091857193_Schema.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701091918039_AddCompanionAndHarmfulPlants.cs" />
+    <Compile Include="Migrations\201701091918039_AddCompanionAndHarmfulPlants.Designer.cs">
+      <DependentUpon>201701091918039_AddCompanionAndHarmfulPlants.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701091950584_FamilyBinderIdIsNotRequired.cs" />
+    <Compile Include="Migrations\201701091950584_FamilyBinderIdIsNotRequired.Designer.cs">
+      <DependentUpon>201701091950584_FamilyBinderIdIsNotRequired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701101555104_UpdateAttributes.cs" />
+    <Compile Include="Migrations\201701101555104_UpdateAttributes.Designer.cs">
+      <DependentUpon>201701101555104_UpdateAttributes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701101652174_RemoveBinderName.cs" />
+    <Compile Include="Migrations\201701101652174_RemoveBinderName.Designer.cs">
+      <DependentUpon>201701101652174_RemoveBinderName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="BeanContext.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bean.POCO\Bean.POCO.csproj">
+      <Project>{F7D9ED10-79E6-474B-AE0C-6254A79C0C21}</Project>
+      <Name>Bean.POCO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201701091812026_Initial.resx">
+      <DependentUpon>201701091812026_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701091857193_Schema.resx">
+      <DependentUpon>201701091857193_Schema.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701091918039_AddCompanionAndHarmfulPlants.resx">
+      <DependentUpon>201701091918039_AddCompanionAndHarmfulPlants.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701091950584_FamilyBinderIdIsNotRequired.resx">
+      <DependentUpon>201701091950584_FamilyBinderIdIsNotRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701101555104_UpdateAttributes.resx">
+      <DependentUpon>201701101555104_UpdateAttributes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701101652174_RemoveBinderName.resx">
+      <DependentUpon>201701101652174_RemoveBinderName.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
