@@ -50,37 +50,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201701091812026_Initial.cs" />
-    <Compile Include="Migrations\201701091812026_Initial.Designer.cs">
-      <DependentUpon>201701091812026_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201701091857193_Schema.cs" />
-    <Compile Include="Migrations\201701091857193_Schema.Designer.cs">
-      <DependentUpon>201701091857193_Schema.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201701091918039_AddCompanionAndHarmfulPlants.cs" />
-    <Compile Include="Migrations\201701091918039_AddCompanionAndHarmfulPlants.Designer.cs">
-      <DependentUpon>201701091918039_AddCompanionAndHarmfulPlants.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201701091950584_FamilyBinderIdIsNotRequired.cs" />
-    <Compile Include="Migrations\201701091950584_FamilyBinderIdIsNotRequired.Designer.cs">
-      <DependentUpon>201701091950584_FamilyBinderIdIsNotRequired.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201701101555104_UpdateAttributes.cs" />
-    <Compile Include="Migrations\201701101555104_UpdateAttributes.Designer.cs">
-      <DependentUpon>201701101555104_UpdateAttributes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201701101652174_RemoveBinderName.cs" />
-    <Compile Include="Migrations\201701101652174_RemoveBinderName.Designer.cs">
-      <DependentUpon>201701101652174_RemoveBinderName.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201701121923236_NewFieldIsNew.cs" />
-    <Compile Include="Migrations\201701121923236_NewFieldIsNew.Designer.cs">
-      <DependentUpon>201701121923236_NewFieldIsNew.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201701121927071_RemovedDefaultSchema.cs" />
-    <Compile Include="Migrations\201701121927071_RemovedDefaultSchema.Designer.cs">
-      <DependentUpon>201701121927071_RemovedDefaultSchema.cs</DependentUpon>
+    <Compile Include="Migrations\201701121933426_Initial.cs" />
+    <Compile Include="Migrations\201701121933426_Initial.Designer.cs">
+      <DependentUpon>201701121933426_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="BeanContext.cs" />
@@ -97,29 +69,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201701091812026_Initial.resx">
-      <DependentUpon>201701091812026_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201701091857193_Schema.resx">
-      <DependentUpon>201701091857193_Schema.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201701091918039_AddCompanionAndHarmfulPlants.resx">
-      <DependentUpon>201701091918039_AddCompanionAndHarmfulPlants.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201701091950584_FamilyBinderIdIsNotRequired.resx">
-      <DependentUpon>201701091950584_FamilyBinderIdIsNotRequired.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201701101555104_UpdateAttributes.resx">
-      <DependentUpon>201701101555104_UpdateAttributes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201701101652174_RemoveBinderName.resx">
-      <DependentUpon>201701101652174_RemoveBinderName.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201701121923236_NewFieldIsNew.resx">
-      <DependentUpon>201701121923236_NewFieldIsNew.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201701121927071_RemovedDefaultSchema.resx">
-      <DependentUpon>201701121927071_RemovedDefaultSchema.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201701121933426_Initial.resx">
+      <DependentUpon>201701121933426_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
