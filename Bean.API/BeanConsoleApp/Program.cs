@@ -18,6 +18,8 @@ namespace BeanConsoleApp
 
         private static void Get()
         {
+            Console.WriteLine("Getting plants...");
+
             using (var context = new BeanContext())
             {
                 var plants = context.Plants.ToList();
@@ -27,6 +29,8 @@ namespace BeanConsoleApp
                     Console.WriteLine(plant.Name);
                 }
             }
+
+            Console.WriteLine("Plants get.");
         }
 
         private static void InsertBinder()
