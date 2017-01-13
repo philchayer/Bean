@@ -1,7 +1,9 @@
 ﻿using Bean.DAL;
 using Bean.DTO;
 using Bean.POCO;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Cors;
@@ -25,13 +27,13 @@ namespace Bean.WebAPI.Controllers
         {
             var plants = dbContext.Plants.Select(
                             plant => new DTO_Plants()
-                                {
-                                    Id = plant.Id,
-                                    Name = plant.Name,
-                                    LatinName = plant.LatinName,
-                                    Family = plant.Family.Name,
-                                    Binder = plant.Family.Binder.Description
-                                }).ToList();
+                            {
+                                Id = plant.Id,
+                                Name = plant.Name,
+                                LatinName = plant.LatinName,
+                                Family = plant.Family.Name,
+                                Binder = plant.Family.Binder.Description
+                            }).ToList();
 
             return plants;
         }
@@ -58,19 +60,52 @@ namespace Bean.WebAPI.Controllers
         // GET: api/Plants/5
         public Plant Get(int id)
         {
-            var plant = dbContext.Plants.FirstOrDefault(p => p.Id == id);
+            Plant plant;
+
+            if (id > 0)
+            {
+                plant = dbContext.Plants.FirstOrDefault(p => p.Id == id);
+                plant.IsNew = false;
+            }
+            else
+            {
+                plant = dbContext.Plants.Create();
+                plant.IsNew = true;
+            }
 
             return plant;
         }
 
         // POST: api/Plants
-        public void Post([FromBody]string value)
+        [HttpPost]
+        public void Post([FromBody]Plant plant)
         {
+            try
+            {
+
+                // todo: temporary hardcoded value (TO REMOVE)
+                plant.Family = dbContext.Families.FirstOrDefault(family => family.Id == 1);
+                plant.FamilyId = 1;
+                plant.Status = Status.Enabled;
+
+
+                //dbContext.Plants.Add(plant);
+                dbContext.Entry(plant).State = System.Data.Entity.EntityState.Added;
+                dbContext.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                throw;
+            }
         }
 
         // PUT: api/Plants/5
-        public void Put(int id, [FromBody]string value)
+        [HttpPut]
+        public void Put(int id, [FromBody]Plant plant)
         {
+            dbContext.Plants.Add(plant);
+            dbContext.SaveChanges();
         }
 
         // DELETE: api/Plants/5

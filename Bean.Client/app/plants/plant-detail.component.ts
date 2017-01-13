@@ -51,10 +51,13 @@ export class PlantDetailComponent implements OnInit, OnDestroy {
 
     //todo: onSave()
     onSave(plant: Plant): void {
-        var result = this._plantService.save(plant);
-        
-        if (result)
-            alert('succeeded');
+        if (plant.id == 0)
+            this._plantService.add(plant)
+                .subscribe(
+                    plant => this.plant = plant,
+                    error => this.errorMessage = <any>error);
+
+        console.log('plant-detail.component.onSave() finished');
     }
 
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, URLSearchParams } from '@angular/http';
+import { Http, Response, RequestOptions, Headers, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
@@ -49,14 +49,25 @@ export class PlantService {
         let paramId: URLSearchParams = new URLSearchParams();
         paramId.set('id', id.toString());
 
-        return this._http.get(this._plantApiUrl, {search: paramId})
+        return this._http.get(this._plantApiUrl, { search: paramId })
             .map((response: Response) => <Plant>response.json())
             .do(data => console.log('plant.service.get(id) data: ' + JSON.stringify(data)))
             .catch(this.handleError);
     }
 
     //todo: post data
-    save(plant: Plant): boolean {
-        return true;
+    add(plant: Plant): Observable<Plant> {
+        console.log('plant.service.save');
+
+        let bodyString = JSON.stringify(plant);
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+        console.log('plant.service.save(), bodyString: ' + bodyString);
+
+        return this._http.post(this._plantApiUrl, bodyString, options)
+            .map((response: Response) => response.json())
+            .do(data => console.log('plant.service.save(), data: ' + data))
+            .catch(this.handleError);
     }
 }

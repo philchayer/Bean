@@ -4,8 +4,8 @@
     <div class="panel panel-primary">
         <div class="panel-heading">
             <!--<span class="glyphicons glyphicons-snowflake"></span>-->
-            {{plant.isNew == true ? "Adding new plant..." : plant.name}}
-            <span class="badge" style="margin-left: 10px"> {{plant.quantityOnHand}} </span>
+            {{plant.id == 0 ? "Adding new plant" : plant.name}}
+            <span class="badge" style="margin-left: 10px"> {{plant.id == 0 ? "..." : plant.quantityOnHand}} </span>
             <button type="button" class="close" aria-label="Close" (click)='onBack()'>
                 <span aria-hidden="true">&times;</span>
             </button>
