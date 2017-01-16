@@ -17,62 +17,63 @@
             <div class="form-group">
                 <label for="name" class="col-md-2 control-label">Name</label>
                 <div class="col-md-4">
-                    <input id="name" type="text" maxlength="50" class="form-control" [(ngModel)]='plant.name' />
+                    <input id="name" type="text" maxlength="50" class="form-control" [(ngModel)]='plant.name'
+                         required name="name"/>
                 </div>
                 <label for="name" class="col-md-2 control-label">Latin name</label>
                 <div class="col-md-4">
-                    <input id="name" type="text" maxlength="50" class="form-control" [(ngModel)]='plant.latinName' />
+                    <input id="latinName" type="text" maxlength="50" class="form-control" [(ngModel)]='plant.latinName' />
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="name" class="col-md-2 control-label">Family</label>
                 <div class="col-md-4">
-                    <input id="name" type="text" class="form-control" [(ngModel)]='plant.family' />
+                    <input type="text" class="form-control" [(ngModel)]='plant.family' />
                 </div>
                 <label for="name" class="col-md-2 control-label">Planting IN</label>
                 <div class="col-md-4">
-                    <input id="name" type="date" class="form-control" [(ngModel)]='plant.plantingIn' />
+                    <input type="date" class="form-control" [(ngModel)]='plant.plantingIn' />
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="name" class="col-md-2 control-label">Direct OUT</label>
                 <div class="col-md-4">
-                    <input id="name" type="date" class="form-control" [(ngModel)]='plant.directOut' />
+                    <input type="date" class="form-control" [(ngModel)]='plant.directOut' />
                 </div>
                 <label for="name" class="col-md-2 control-label">Transplant OUT</label>
                 <div class="col-md-4">
-                    <input id="name" type="date" class="form-control" [(ngModel)]='plant.transplantOut' />
+                    <input type="date" class="form-control" [(ngModel)]='plant.transplantOut' />
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="name" class="col-md-2 control-label">Direct GHouse Summer</label>
                 <div class="col-md-4">
-                    <input id="name" type="date" class="form-control" [(ngModel)]='plant.directGHSummer' />
+                    <input type="date" class="form-control" [(ngModel)]='plant.directGHSummer' />
                 </div>
                 <label for="name" class="col-md-2 control-label">Direct GHouse Winter</label>
                 <div class="col-md-4">
-                    <input id="name" type="date" class="form-control" [(ngModel)]='plant.directGHWinter' />
+                    <input type="date" class="form-control" [(ngModel)]='plant.directGHWinter' />
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="name" class="col-sm-3 col-md-2 control-label">Distance Between Plants</label>
                 <div class="col-sm-2">
-                    <input id="name" type="number" min="0" class="form-control" [(ngModel)]='plant.distanceBetweenPlants' />
+                    <input type="number" min="0" class="form-control" [(ngModel)]='plant.distanceBetweenPlants' />
                 </div>
                 <label for="name" class="col-sm-3 col-sm-offset-1 col-md-2 col-md-offset-2 control-label">Distance Between Rows</label>
                 <div class="col-sm-2">
-                    <input id="name" type="number" min="0" class="form-control" [(ngModel)]='plant.distanceBetweenRows' />
+                    <input type="number" min="0" class="form-control" [(ngModel)]='plant.distanceBetweenRows' />
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="name" class="col-sm-3 col-md-2 control-label">Yield</label>
                 <div class="col-sm-2">
-                    <input id="name" type="number" class="form-control" [(ngModel)]='plant.yield' />
+                    <input type="number" class="form-control" [(ngModel)]='plant.yield' />
                 </div>
                 <label for="name" class="col-sm-3 col-sm-offset-1 col-md-2 col-md-offset-2 control-label">Cold Hardy</label>
                 <div class="col-sm-1 checkbox">
@@ -83,13 +84,13 @@
             <div class="form-group">
                 <label for="name" class="col-md-2 control-label">Comment</label>
                 <div class="col-md-10">
-                    <textarea id="name" type="text" class="form-control" rows="3" maxlength="500" [(ngModel)]='plant.comment'></textarea>
+                    <textarea type="text" class="form-control" rows="3" maxlength="500" [(ngModel)]='plant.comment'></textarea>
                 </div>
             </div>
         </div>
     </div>
     <div class="panel-footer text-right">
-        <a class="btn btn-info" (click)='onBack()' style="width: 80px;"><i class="glyphicon glyphicon-chevron-left"></i> Back</a>
-        <a class="btn btn-success text-right" (click)='onSave(plant)' style="width: 80px;"><i class="glyphicon glyphicon glyphicon-floppy-disk"></i> Save</a>
+        <button type="reset" class="btn btn-info" (click)='onBack()' style="width: 80px;"><i class="glyphicon glyphicon-chevron-left"></i> Back</button>
+        <button type="submit" class="btn btn-success text-right" (click)='onSubmit(plant)' style="width: 80px;"><i class="glyphicon glyphicon glyphicon-floppy-disk"></i> Save</button>
     </div>
 </div>

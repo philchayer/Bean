@@ -49,7 +49,7 @@ export class PlantDetailComponent implements OnInit, OnDestroy {
         this._router.navigate(['/plants']);
     }
 
-    onSave(plant: Plant): void {
+    onSubmit(plant: Plant): void {
         if (plant.id == 0)
             this._plantService.add(plant).subscribe(
                 plant => this.plant = plant,
@@ -59,7 +59,7 @@ export class PlantDetailComponent implements OnInit, OnDestroy {
                 plant => this.plant = plant,
                 error => this.errorMessage = <any>error);
 
-        console.log('plant-detail.component.onSave() finished');
+        console.log('plant-detail.component.onSubmit() finished');
     }
 
 }
