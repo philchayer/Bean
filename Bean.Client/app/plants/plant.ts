@@ -1,6 +1,5 @@
-interface IBaseObject {
-    isNew: boolean;
-}
+import { IBaseObject } from '../shared/base';
+import { Status } from '../shared/enums';
 
 interface IPlant {
     id: number;
@@ -22,7 +21,7 @@ interface IPlant {
     quantityOnHand: number;
     companionPlants: Plant[],
     harmfulPlants: Plant[],
-    status: number;
+    status: Status;
 }
 
 export class Plant implements IPlant, IBaseObject {
@@ -48,7 +47,7 @@ export class Plant implements IPlant, IBaseObject {
     quantityOnHand = 0;
     companionPlants = new Plant[0]();
     harmfulPlants = new Plant[0]();
-    status = 0;
+    status = Status.Enabled;
 
     constructor() { }
 }
