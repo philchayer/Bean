@@ -49,13 +49,15 @@ export class PlantDetailComponent implements OnInit, OnDestroy {
         this._router.navigate(['/plants']);
     }
 
-    //todo: onSave()
     onSave(plant: Plant): void {
         if (plant.id == 0)
-            this._plantService.add(plant)
-                .subscribe(
-                    plant => this.plant = plant,
-                    error => this.errorMessage = <any>error);
+            this._plantService.add(plant).subscribe(
+                plant => this.plant = plant,
+                error => this.errorMessage = <any>error);
+        else
+            this._plantService.update(plant).subscribe(
+                plant => this.plant = plant,
+                error => this.errorMessage = <any>error);
 
         console.log('plant-detail.component.onSave() finished');
     }

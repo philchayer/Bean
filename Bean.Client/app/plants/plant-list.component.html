@@ -12,7 +12,7 @@
                 <input type='text' id="inputFilter" [(ngModel)]='listFilter' class="form-control" />
             </div>
             <div class="col-md-2 col-md-offset-5 text-right">
-                <a class="btn btn-info" [routerLink]="['/plant', 0]"><i class="glyphicon glyphicon glyphicon-plus"></i> Add plant</a>
+                <a class="btn btn-info" [routerLink]="['/plant', 0]"><i class="glyphicon glyphicon-plus"></i> Add plant</a>
             </div>
         </div>
     </div>
@@ -24,19 +24,21 @@
             <thead>
                 <tr>
                     <th class="col-md-4">Plant</th>
-                    <th class="col-md-4">Latin name</th>
+                    <th class="col-md-2">Latin Name</th>
                     <th class="col-md-2">Family</th>
-                    <!--<th class="col-md-1 text-center">Cold Hardy</th>
-                    <th class="col-md-1 text-right">Quantity On Hand</th>-->
+                    <th class="col-md-2">Binder</th>
+                    <th class="col-md-1 text-right">On Hand</th>
+                    <th class="col-md-1"></th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor='let plant of dto_plants | plantFilter: listFilter' [routerLink]="['/plant', plant.id]">
-                    <td>{{ plant.name }}</td>
-                    <td>{{ plant.latinName }}</td>
-                    <td>{{ plant.family }}</td>
-                    <!--<td class="text-center"><input type="checkbox" [checked]='plant.coldHardy'></td>
-                    <td class="text-right">{{ plant.quantityOnHand }}</td>-->
+                <tr *ngFor='let plant of dto_plants | plantFilter: listFilter'>
+                    <td [routerLink]="['/plant', plant.id]">{{ plant.name }}</td>
+                    <td [routerLink]="['/plant', plant.id]">{{ plant.latinName }}</td>
+                    <td [routerLink]="['/plant', plant.id]">{{ plant.family }}</td>
+                    <td [routerLink]="['/plant', plant.id]">{{ plant.binder }}</td>
+                    <td [routerLink]="['/plant', plant.id]" class="text-right">{{ plant.quantityOnHand }}</td>
+                    <td class="text-right"><i class="glyphicon glyphicon-trash"(click)='onDelete(plant)'></i></td>
                 </tr>
             </tbody>
         </table>

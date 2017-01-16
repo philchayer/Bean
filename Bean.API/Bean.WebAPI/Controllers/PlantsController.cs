@@ -3,6 +3,7 @@ using Bean.DTO;
 using Bean.POCO;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Diagnostics;
 using System.Linq;
 using System.Web.Http;
@@ -25,15 +26,17 @@ namespace Bean.WebAPI.Controllers
         [HttpGet]
         public IEnumerable<DTO_Plants> Get()
         {
-            var plants = dbContext.Plants.Select(
-                            plant => new DTO_Plants()
-                            {
-                                Id = plant.Id,
-                                Name = plant.Name,
-                                LatinName = plant.LatinName,
-                                Family = plant.Family.Name,
-                                Binder = plant.Family.Binder.Description
-                            }).ToList();
+            var plants = dbContext.Plants
+                            .Where(plant => plant.Status == Status.Enabled)
+                            .Select(
+                                plant => new DTO_Plants()
+                                {
+                                    Id = plant.Id,
+                                    Name = plant.Name,
+                                    LatinName = plant.LatinName,
+                                    Family = plant.Family.Name,
+                                    Binder = plant.Family.Binder.Description
+                                }).ToList();
 
             return plants;
         }
@@ -43,6 +46,7 @@ namespace Bean.WebAPI.Controllers
         public IEnumerable<DTO_Plants> Get(string search)
         {
             var plants = dbContext.Plants
+                            .Where(plant => plant.Status == Status.Enabled)
                             .Select(
                                 plant => new DTO_Plants()
                                 {
@@ -58,6 +62,7 @@ namespace Bean.WebAPI.Controllers
         }
 
         // GET: api/Plants/5
+        [HttpGet]
         public Plant Get(int id)
         {
             Plant plant;
@@ -82,14 +87,14 @@ namespace Bean.WebAPI.Controllers
         {
             try
             {
-
-                // todo: temporary hardcoded value (TO REMOVE)
+                // todo: REMOVE temporary hardcoded value
                 plant.Family = dbContext.Families.FirstOrDefault(family => family.Id == 1);
                 plant.FamilyId = 1;
                 plant.Status = Status.Enabled;
 
 
-                //dbContext.Plants.Add(plant);
+
+
                 dbContext.Entry(plant).State = System.Data.Entity.EntityState.Added;
                 dbContext.SaveChanges();
             }
@@ -104,13 +109,55 @@ namespace Bean.WebAPI.Controllers
         [HttpPut]
         public void Put(int id, [FromBody]Plant plant)
         {
-            dbContext.Plants.Add(plant);
-            dbContext.SaveChanges();
+            try
+            {
+                // todo: REMOVE temporary hardcoded value
+                plant.Family = dbContext.Families.FirstOrDefault(family => family.Id == 1);
+
+
+
+
+                dbContext.Entry(plant).State = System.Data.Entity.EntityState.Modified;
+                dbContext.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                throw;
+            }
         }
 
         // DELETE: api/Plants/5
         public void Delete(int id)
         {
+            try
+            {
+                var plant = dbContext.Plants.FirstOrDefault(p => p.Id == id && p.Status == Status.Enabled);
+
+                if (plant != null)
+                {
+                    // todo: REMOVE temporary hardcoded value
+                    plant.Family = dbContext.Families.FirstOrDefault(family => family.Id == 1);
+                    plant.FamilyId = 1;
+
+
+
+                    plant.Status = Status.Deleted;
+                    dbContext.Entry(plant).State = System.Data.Entity.EntityState.Modified;
+                    dbContext.SaveChanges();
+                }
+            }
+            catch (DbEntityValidationException ex)
+            {
+                Debug.WriteLine(ex);
+                throw;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                throw;
+            }
+
         }
     }
 }
