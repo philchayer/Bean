@@ -87,6 +87,10 @@ button.close {
     font-size: 1.2em;
 }
 
+.btn-form{
+    width: 90px;
+}
+
 .form-control {
     color: #eee;
     background-color: #454242;
