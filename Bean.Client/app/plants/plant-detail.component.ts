@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs/Subscription';
 
 import { Plant } from './plant';
@@ -49,13 +50,19 @@ export class PlantDetailComponent implements OnInit, OnDestroy {
         this._router.navigate(['/plants']);
     }
 
-    onSubmit(plant: Plant): void {
-        if (plant.id == 0)
-            this._plantService.add(plant).subscribe(
+    onSubmit(form: NgForm): void {
+        // validations
+        if (form.invalid){
+            alert('invalid data');
+            return;
+        }
+
+        if (this.plant.id == 0)
+            this._plantService.add(this.plant).subscribe(
                 plant => this.plant = plant,
                 error => this.errorMessage = <any>error);
         else
-            this._plantService.update(plant).subscribe(
+            this._plantService.update(this.plant).subscribe(
                 plant => this.plant = plant,
                 error => this.errorMessage = <any>error);
 
