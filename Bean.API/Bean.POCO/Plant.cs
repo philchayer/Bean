@@ -17,13 +17,14 @@ namespace Bean.POCO
         public int FamilyId { get; set; }
 
         [DataMember]
-        [Required]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Family is required")]
         [ForeignKey("FamilyId")]
         public Family Family { get; set; }
 
         [DataMember]
-        [Required]
-        [MaxLength(50)]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Name is required")]
+        [MaxLength(50, ErrorMessage = "Name must be least then 50 characters")]
+        [MinLength(3)]
         public string Name { get; set; }
 
         [DataMember]

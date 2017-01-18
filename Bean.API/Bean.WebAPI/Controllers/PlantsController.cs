@@ -128,9 +128,12 @@ namespace Bean.WebAPI.Controllers
 
 
 
-
+                // validation
                 if (plant == null)
                     return BadRequest("Plant cannot be null");
+
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
 
                 dbContext.Entry(plant).State = System.Data.Entity.EntityState.Added;
                 dbContext.SaveChanges();
@@ -156,9 +159,12 @@ namespace Bean.WebAPI.Controllers
 
 
 
-
+                // validation
                 if (plant == null)
                     return BadRequest("Plant cannot be null");
+
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
 
                 dbContext.Entry(plant).State = System.Data.Entity.EntityState.Modified;
                 dbContext.SaveChanges();
