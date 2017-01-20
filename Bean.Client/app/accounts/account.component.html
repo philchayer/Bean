@@ -1,0 +1,11 @@
+<form class="form-group">
+    <input type="text" placeholder="username (email)" [(ngModel)]="account.email" name="username" />
+    <input type="text" placeholder="password" [(ngModel)]="account.password" name="password" />
+    <button type="submit" class="btn btn-info" (click)="login()">
+        Login
+    </button>
+    <button type="submit" class="btn btn-default" (click)="register()">
+        Register
+    </button>
+    <div *ngIf="message">{{message}}</div>
+</form>

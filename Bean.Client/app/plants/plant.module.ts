@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { HttpModule } from '@angular/http';
 
 import { PlantListComponent } from './plant-list.component';
 import { PlantDetailComponent } from './plant-detail.component';
@@ -13,7 +12,6 @@ import { SharedModule } from '../shared/shared.module';
 @NgModule({
     imports: [
         SharedModule,
-        HttpModule,
         RouterModule.forChild([
             { path: 'plants', component: PlantListComponent },
             {

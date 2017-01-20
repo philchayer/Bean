@@ -38,7 +38,7 @@ export class PlantService {
         //, {search: params}
         return this._http.get(this.API_URL)
             .map((response: Response) => <IDTO_Plant[]>response.json())
-            .do(data => console.log('plant.service.gets_dto data: ' + JSON.stringify(data)))
+            //.do(data => console.log('plant.service.gets_dto data: ' + JSON.stringify(data)))
             .catch(this.handleError);
     }
 
