@@ -16,9 +16,11 @@ using Microsoft.Owin.Security.OAuth;
 using Bean.WebAPI.Models;
 using Bean.WebAPI.Providers;
 using Bean.WebAPI.Results;
+using System.Web.Http.Cors;
 
 namespace Bean.WebAPI.Controllers
 {
+    [EnableCors(origins: "http://localhost:3000", headers: "*", methods: "*")]
     [Authorize]
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController

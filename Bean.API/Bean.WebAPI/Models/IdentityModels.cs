@@ -21,7 +21,7 @@ namespace Bean.WebAPI.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base(Bean.DAL.BeanContext.DB_NAME, throwIfV1Schema: false)
         {
         }
         

@@ -7,7 +7,7 @@ namespace Bean.DAL
     {
         #region constants
 
-        private const string DB_NAME = "Bean";
+        public const string DB_NAME = "Bean";
         
         #endregion constants
 
