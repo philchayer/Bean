@@ -46,10 +46,10 @@ export class PlantService {
         console.log('plant.service.get() begin...');
 
         // insert id param
-        let paramId: URLSearchParams = new URLSearchParams();
-        paramId.set('id', id.toString());
+        let params: URLSearchParams = new URLSearchParams();
+        params.set('id', id.toString());
 
-        return this._http.get(this.API_URL, { search: paramId })
+        return this._http.get(this.API_URL, { search: params })
             .map((response: Response) => <Plant>response.json())
             .do(data => console.log('plant.service.get(id) data: ' + JSON.stringify(data)))
             .catch(this.handleError);
