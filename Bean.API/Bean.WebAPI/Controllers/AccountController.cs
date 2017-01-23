@@ -20,7 +20,6 @@ using System.Web.Http.Cors;
 
 namespace Bean.WebAPI.Controllers
 {
-    [EnableCors(origins: "http://localhost:3000", headers: "*", methods: "*")]
     [Authorize]
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController

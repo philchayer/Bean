@@ -15,11 +15,9 @@ namespace Bean.WebAPI
         {
             // Web API configuration and services
             // Configure Web API to use only bearer token authentication.
+            // Todo: uncomment when Authorization will be implemented
             //config.SuppressDefaultHostAuthentication();
             //config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
-
-            // return json object by default
-            //config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
 
             // resolve the object properties camelcase
             config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();

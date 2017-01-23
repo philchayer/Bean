@@ -12,7 +12,6 @@ using System.Web.Http.Description;
 
 namespace Bean.WebAPI.Controllers
 {
-    [EnableCors(origins: "http://localhost:3000", headers: "*", methods: "*")]
     public class PlantsController : ApiController
     {
         private BeanContext dbContext = new BeanContext();
