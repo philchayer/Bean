@@ -11,8 +11,21 @@
                 <a class="navbar-brand" [routerLink]="['/welcome']">Home</a>
                 <a class="navbar-brand" [routerLink]="['/plants']">Seeds and Plants List</a>
             </div>
-            <div class="navbar-brand navbar-right">
+            <div class="navbar-header navbar-right">
                 <account-login></account-login>
+                <!--<div *ngIf="!_authService.loggedIn()">
+                    <div style="margin-top: 5px;">
+                        <button type="submit" class="btn btn-info" (click)="_authService.login()">
+                            <i class="glyphicon glyphicon-log-in"></i> Login
+                        </button>
+                    </div>
+                </div>
+                <div *ngIf="_authService.loggedIn()">
+                    <span>Welcome!</span>
+                    <button type="submit" class="btn btn-default" (click)="_authService.logout()">
+                        <i class="glyphicon glyphicon-log-out"></i> Logout
+                    </button>
+                </div>-->
             </div>
         </div>
     </nav>
