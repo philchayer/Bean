@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs/Subscription';
 
 import { Account } from './account';
 import { AccountService } from './account.service';
+import { Token } from '../shared/token';
 
 @Component({
     moduleId: module.id,
@@ -15,7 +16,7 @@ export class AccountComponent implements OnInit {
     account: Account = new Account();
 
     isLoggedIn: boolean = false;
-    token: string;
+    token: Token;
 
     constructor(private _accountService: AccountService) { }
 
@@ -31,11 +32,11 @@ export class AccountComponent implements OnInit {
         console.log('account.component.login() end');
     }
 
-    private onLogin(response: Response): void{
+    private onLogin(token: Token): void{
         console.log('account.component.onLogin() begin...');
-        console.log(response);
+        console.log('token: ' + token.access_token);
 
-        // this.token = response.data.access_token;
+        this.token = token;
         this.message = '';
         this.isLoggedIn = true;
 

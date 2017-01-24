@@ -6,6 +6,7 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 
 import { Account } from './account';
+import { Token } from '../shared/token';
 
 @Injectable()
 export class AccountService {
@@ -23,7 +24,7 @@ export class AccountService {
         return Observable.throw(error.json().error || 'Server error');
     }
 
-    login(account: Account): Observable<Response> {
+    login(account: Account): Observable<Token> {
         console.log('account.service.login() begin...');
 
         let param = new URLSearchParams();
@@ -35,7 +36,7 @@ export class AccountService {
         let options = new RequestOptions({ headers: headers });
 
         return this._http.post(`${this.API_URL}/Token`, param, options)
-            .do(response => console.log(typeof(response)))
+            .map((response: Response) => response.json())
             .catch(this.handleError);
     }
 
