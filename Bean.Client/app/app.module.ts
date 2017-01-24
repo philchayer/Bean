@@ -8,6 +8,10 @@ import { WelcomeComponent } from './home/welcome.component';
 import { PlantModule } from './plants/plant.module';
 import { AccountComponent } from './accounts/account.component';
 import { AccountService } from './accounts/account.service';
+import { AuthComponent } from './auth/auth.component';
+import { AuthService } from './auth/auth.service';
+import { AuthGuard } from './auth/auth-guard.service'
+
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
@@ -25,9 +29,14 @@ import { SharedModule } from './shared/shared.module';
   declarations: [
     AppComponent,
     WelcomeComponent,
-    AccountComponent
+    AccountComponent,
+    AuthComponent
   ],
-  providers: [AccountService],
+  providers: [
+    AccountService,
+    AuthService,
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
