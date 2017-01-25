@@ -57,4 +57,8 @@ export class AccountService {
             .catch(this.handleError);
     }
 
+    getToken(): string {
+        return  localStorage.getItem('token');
+    }
+
 }

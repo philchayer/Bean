@@ -16,7 +16,6 @@ export class AccountComponent implements OnInit {
     account: Account = new Account();
 
     isLoggedIn: boolean = false;
-    token: Token;
 
     constructor(private _accountService: AccountService) { }
 
@@ -32,18 +31,18 @@ export class AccountComponent implements OnInit {
         console.log('account.component.login() end');
     }
 
-    private onLogin(token: Token): void{
+    private onLogin(token: Token): void {
         console.log('account.component.onLogin() begin...');
-        console.log('token: ' + token.access_token);
 
-        this.token = token;
         this.message = '';
         this.isLoggedIn = true;
+
+        localStorage.setItem('token', token.access_token);
 
         console.log('account.component.onLogin() end');
     }
 
-    logout(): void{
+    logout(): void {
 
         console.log('account.component.logout() begin ...');
 
@@ -56,7 +55,7 @@ export class AccountComponent implements OnInit {
     register(): void {
         console.log('account.component.register() begin...');
 
-         this._accountService.register(this.account)
+        this._accountService.register(this.account)
             .subscribe(account => this.onRegister(account),
             error => this.message = <any>error);
 

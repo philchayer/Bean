@@ -12,15 +12,10 @@ using System.Web.Http.Description;
 
 namespace Bean.WebAPI.Controllers
 {
+    [Authorize]
     public class PlantsController : ApiController
     {
         private BeanContext dbContext = new BeanContext();
-
-
-        //public IEnumerable<Plant> Get()
-        //{
-        //    return dbContext.Plants.ToList();
-        //}
 
         // GET: api/Plants
         [HttpGet]

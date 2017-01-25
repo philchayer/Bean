@@ -15,14 +15,13 @@ namespace Bean.WebAPI
         {
             // Web API configuration and services
             // Configure Web API to use only bearer token authentication.
-            // Todo: uncomment when Authorization will be implemented
-            //config.SuppressDefaultHostAuthentication();
-            //config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
+            config.SuppressDefaultHostAuthentication();
+            config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 
-            // resolve the object properties camelcase
+            // Resolve the object properties camelcase
             config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
 
-            // enable cors
+            // Enable cors
             config.EnableCors();
 
             // Web API routes

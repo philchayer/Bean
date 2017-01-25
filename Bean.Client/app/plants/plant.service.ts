@@ -7,14 +7,16 @@ import 'rxjs/add/operator/catch';
 
 import { Plant } from './plant';
 import { IDTO_Plant } from './dto_plant';
+import { AccountService } from '../accounts/account.service';
 
 @Injectable()
 export class PlantService {
 
     //private _plantApiUrl = 'api/plants/plants.json';
-    private API_URL = 'http://localhost:21709/api/Plants';
+    private API_URL = 'http://localhost:21709/api/plants';
 
-    constructor(private _http: Http) { }
+    constructor(private _http: Http,
+                private _accountService: AccountService) { }
 
     // todo: manage error handling
     private handleError(error: Response) {
@@ -35,10 +37,15 @@ export class PlantService {
         // let params: URLSearchParams = new URLSearchParams();
         // params.set('search', 'So');
 
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        headers.append('Authorization', 'bearer ' + this._accountService.getToken());
+
+        let options = new RequestOptions({ headers: headers });
+
         //, {search: params}
-        return this._http.get(this.API_URL)
+        return this._http.get(this.API_URL, options)
             .map((response: Response) => <IDTO_Plant[]>response.json())
-            //.do(data => console.log('plant.service.gets_dto data: ' + JSON.stringify(data)))
             .catch(this.handleError);
     }
 
