@@ -8,9 +8,9 @@ import { WelcomeComponent } from './home/welcome.component';
 import { PlantModule } from './plants/plant.module';
 import { AccountComponent } from './accounts/account.component';
 import { AccountService } from './accounts/account.service';
-import { AuthComponent } from './auth/auth.component';
-import { AuthService } from './auth/auth.service';
-import { AuthGuard } from './auth/auth-guard.service'
+// import { AuthComponent } from './auth/auth.component';
+// import { AuthService } from './auth/auth.service';
+// import { AuthGuard } from './auth/auth-guard.service'
 
 import { SharedModule } from './shared/shared.module';
 
@@ -29,13 +29,13 @@ import { SharedModule } from './shared/shared.module';
   declarations: [
     AppComponent,
     WelcomeComponent,
-    AccountComponent,
-    AuthComponent
+    AccountComponent
+    // AuthComponent
   ],
   providers: [
-    AccountService,
-    AuthService,
-    AuthGuard
+    AccountService
+    // AuthService,
+    // AuthGuard
   ],
   bootstrap: [AppComponent]
 })

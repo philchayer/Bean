@@ -1,45 +1,45 @@
-import { Injectable } from '@angular/core';
-import { tokenNotExpired } from 'angular2-jwt';
-import { Router } from '@angular/router';
+// import { Injectable } from '@angular/core';
+// import { tokenNotExpired } from 'angular2-jwt';
+// import { Router } from '@angular/router';
 
-declare var Auth0Lock: any;
+// declare var Auth0Lock: any;
 
-@Injectable()
-export class AuthService {
+// @Injectable()
+// export class AuthService {
 
-  lock = new Auth0Lock('tK4AOE7Uj82oSkZsHzeUKq6RaUQrhKzV', 'philchayer.auth0.com');
+//   lock = new Auth0Lock('tK4AOE7Uj82oSkZsHzeUKq6RaUQrhKzV', 'philchayer.auth0.com');
 
-  constructor(private _router: Router) {
-    this.lock.on('authenticated', (authResult: any) => {
-      localStorage.setItem('id_token', authResult.idToken);
+//   constructor(private _router: Router) {
+//     this.lock.on('authenticated', (authResult: any) => {
+//       localStorage.setItem('id_token', authResult.idToken);
 
-      this.lock.getProfile(authResult.idToken, (error: any, profile: any) => {
-        if (error) {
-          console.log(error);
-        }
+//       this.lock.getProfile(authResult.idToken, (error: any, profile: any) => {
+//         if (error) {
+//           console.log(error);
+//         }
 
-        localStorage.setItem('profile', JSON.stringify(profile));
-      });
+//         localStorage.setItem('profile', JSON.stringify(profile));
+//       });
 
-      this.lock.hide();
-    });
-  }
+//       this.lock.hide();
+//     });
+//   }
 
-  login() {
-    this.lock.show();
-  }
+//   login() {
+//     this.lock.show();
+//   }
 
-  logout() {
-    // To log out, just remove the token and profile
-    // from local storage
-    localStorage.removeItem('profile');
-    localStorage.removeItem('id_token');
+//   logout() {
+//     // To log out, just remove the token and profile
+//     // from local storage
+//     localStorage.removeItem('profile');
+//     localStorage.removeItem('id_token');
 
-    // Send the user back to the dashboard after logout
-    this._router.navigateByUrl('/welcome');
-  }
+//     // Send the user back to the dashboard after logout
+//     this._router.navigateByUrl('/welcome');
+//   }
 
-  loggedIn() {
-    return tokenNotExpired();
-  }
-}
+//   loggedIn() {
+//     return tokenNotExpired();
+//   }
+// }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { AuthService } from './auth/auth.service';
+// import { AuthService } from './auth/auth.service';
 
 @Component({
     moduleId: module.id,
@@ -11,7 +11,7 @@ import { AuthService } from './auth/auth.service';
 export class AppComponent {
     pageTitle = 'Plant Me';
 
-    constructor(private _authService: AuthService) {
+    constructor() { //private _authService: AuthService) {
 
     }
 }
