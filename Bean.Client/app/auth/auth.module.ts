@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 
-import { AccountComponent } from './account.component';
-import { AccountService } from './account.service';
+import { AuthenticationComponent } from './auth.component';
+import { AuthenticationService } from './auth.service';
 
 import { SharedModule } from '../shared/shared.module';
 
@@ -13,8 +13,8 @@ import { SharedModule } from '../shared/shared.module';
     ],
     exports: [],
     declarations: [
-        AccountComponent],
+        AuthenticationComponent],
     providers: [
-        AccountService],
+        AuthenticationService],
 })
-export class AccountModule { }
+export class AuthenticationModule { }

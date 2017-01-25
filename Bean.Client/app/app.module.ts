@@ -6,11 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './home/welcome.component';
 import { PlantModule } from './plants/plant.module';
-import { AccountComponent } from './accounts/account.component';
-import { AccountService } from './accounts/account.service';
-// import { AuthComponent } from './auth/auth.component';
-// import { AuthService } from './auth/auth.service';
-// import { AuthGuard } from './auth/auth-guard.service'
+import { AuthenticationComponent } from './auth/auth.component';
+import { AuthenticationService } from './auth/auth.service';
 
 import { SharedModule } from './shared/shared.module';
 
@@ -29,13 +26,10 @@ import { SharedModule } from './shared/shared.module';
   declarations: [
     AppComponent,
     WelcomeComponent,
-    AccountComponent
-    // AuthComponent
+    AuthenticationComponent
   ],
   providers: [
-    AccountService
-    // AuthService,
-    // AuthGuard
+    AuthenticationService
   ],
   bootstrap: [AppComponent]
 })

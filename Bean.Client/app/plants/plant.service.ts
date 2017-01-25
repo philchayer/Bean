@@ -7,7 +7,7 @@ import 'rxjs/add/operator/catch';
 
 import { Plant } from './plant';
 import { IDTO_Plant } from './dto_plant';
-import { AccountService } from '../accounts/account.service';
+import { AuthenticationService } from '../auth/auth.service';
 
 @Injectable()
 export class PlantService {
@@ -16,7 +16,7 @@ export class PlantService {
     private API_URL = 'http://localhost:21709/api/plants';
 
     constructor(private _http: Http,
-                private _accountService: AccountService) { }
+                private _authService: AuthenticationService) { }
 
     // todo: manage error handling
     private handleError(error: Response) {
@@ -39,7 +39,7 @@ export class PlantService {
 
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        headers.append('Authorization', 'bearer ' + this._accountService.getToken());
+        headers.append('Authorization', 'bearer ' + this._authService.getToken());
 
         let options = new RequestOptions({ headers: headers });
 

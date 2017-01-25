@@ -1,9 +1,9 @@
 <form class="form-group" style="margin-top: 0px" *ngIf="!isLoggedIn">
     <div class="col-md-4">
-        <input type="text" placeholder="username (email)" [(ngModel)]="account.email" name="username" class="form-control" />
+        <input type="text" placeholder="username (email)" [(ngModel)]="auth.email" name="username" class="form-control" />
     </div>
     <div class="col-md-4">
-        <input type="password" placeholder="password" [(ngModel)]="account.password" name="password" class="form-control" />
+        <input type="password" placeholder="password" [(ngModel)]="auth.password" name="password" class="form-control" />
     </div>
     <div class="col-md-2">
         <button type="submit" class="btn btn-info" (click)="login()">
@@ -18,7 +18,7 @@
     <div *ngIf="message">{{message}}</div>
 </form>
 <form class="form-group" *ngIf="isLoggedIn">
-    <span>Welcome {{account.email}}!</span>
+    <span>Welcome {{auth.email}}!</span>
     <button type="submit" class="btn btn-default" (click)="logout()">
         <i class="glyphicon glyphicon-log-out"></i> Logout
     </button>
