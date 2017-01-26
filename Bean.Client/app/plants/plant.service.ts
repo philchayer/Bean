@@ -25,14 +25,9 @@ export class PlantService {
     gets(): Observable<IPlants[]> {
         console.log('plant.service.gets() begin...');
 
-        // insert search param
-        // let params: URLSearchParams = new URLSearchParams();
-        // params.set('search', 'So');
-
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
-        //, {search: params}
         return this._http.get(Service.PLANT_API_URL, options)
             .map((response: Response) => <IPlants[]>response.json())
             .catch(this.handleError);
