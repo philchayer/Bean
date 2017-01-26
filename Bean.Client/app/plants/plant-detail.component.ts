@@ -46,10 +46,6 @@ export class PlantDetailComponent implements OnInit, OnDestroy {
         }
     }
 
-    onBack(): void {
-        this._router.navigate(['/plants']);
-    }
-
     onSubmit(form: NgForm): void {
         // validations
         if (form.invalid){
