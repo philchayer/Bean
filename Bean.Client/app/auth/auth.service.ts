@@ -6,13 +6,14 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 
 import { Authentication } from './auth';
-import { Token } from '../shared/token';
 
 @Injectable()
 export class AuthenticationService {
 
-    private readonly API_URL = 'http://localhost:21709/';
-    private API_AUTH_URL = this.API_URL + 'api/Account';
+    readonly API_URL = 'http://localhost:21709/';
+    API_AUTH_URL = this.API_URL + 'api/Account';
+
+    public isLoggedIn: boolean = false;
 
     constructor(private _http: Http) { }
 
@@ -23,7 +24,7 @@ export class AuthenticationService {
         return Observable.throw(error.json().error || 'Server error');
     }
 
-    login(auth: Authentication): Observable<Token> {
+    login(auth: Authentication): Observable<Authentication> {
         console.log('auth.service.login() begin...');
 
         let param = new URLSearchParams();
@@ -35,8 +36,14 @@ export class AuthenticationService {
         let options = new RequestOptions({ headers: headers });
 
         return this._http.post(`${this.API_URL}/Token`, param, options)
-            .map((response: Response) => response.json())
-            .catch(this.handleError);
+            .map((data) => {
+                if (data.status == 200) {
+                    auth.token = data.json().access_token;
+                    auth.statusText = '';
+                }
+                return auth;
+            })
+            .catch((this.handleError));
     }
 
     register(auth: Authentication): Observable<Authentication> {
@@ -57,7 +64,7 @@ export class AuthenticationService {
     }
 
     getToken(): string {
-        return  localStorage.getItem('token');
+        return localStorage.getItem('token');
     }
 
 }

@@ -7,11 +7,10 @@
 <div class='panel-body'>
     <div class="form-horizontal">
         <div class='form-group'>
-            <label for="inputFilter" class="col-md-1 control-label">Filter by</label>
             <div class='col-md-4'>
-                <input type='text' id="inputFilter" [(ngModel)]='listFilter' class="form-control" />
+                <input type='text' id="inputFilter" [(ngModel)]='listFilter' class="form-control" placeholder="Filter by" />
             </div>
-            <div class="col-md-2 col-md-offset-5 text-right">
+            <div class="col-md-2 col-md-offset-6 text-right">
                 <a class="btn btn-info" [routerLink]="['/plant', 0]"><i class="glyphicon glyphicon-plus"></i> Add plant</a>
             </div>
         </div>

@@ -1,0 +1,29 @@
+<div class="container-login">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <span>Login</span>
+            <button type="button" class="close" aria-label="Close" (click)="back()">
+                <span aria-hidden="true"><i class="glyphicon glyphicon-remove"></i></span>
+            </button>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="content-center">
+            <img class="img-login" src="./app/assets/images/logo.png">
+        </div>
+        <div *ngIf="message">{{message}}</div>
+        <form class="content-center">
+            <div class="form-group">
+                <input name="userName" [(ngModel)]="auth.email" type="text" class="form-control" placeholder="Username (email)">
+            </div>
+            <div class="form-group">
+                <input name="password" [(ngModel)]="auth.password" type="password" class="form-control" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-form btn-default" (click)="login()">
+                <i class="glyphicon glyphicon-log-in"></i> Login
+            </button>
+            <button class="btn btn-form btn-default" disabled (click)="register()">Register</button>
+            <button type="reset" class="btn btn-form btn-default" (click)="clearValues()">Clear</button>
+        </form>
+    </div>
+</div>

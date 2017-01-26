@@ -16,7 +16,7 @@ export class PlantService {
     private API_URL = 'http://localhost:21709/api/plants';
 
     constructor(private _http: Http,
-                private _authService: AuthenticationService) { }
+        private _authService: AuthenticationService) { }
 
     // todo: manage error handling
     private handleError(error: Response) {
@@ -37,10 +37,7 @@ export class PlantService {
         // let params: URLSearchParams = new URLSearchParams();
         // params.set('search', 'So');
 
-        let headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-        headers.append('Authorization', 'bearer ' + this._authService.getToken());
-
+        let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
         //, {search: params}
@@ -66,7 +63,10 @@ export class PlantService {
         console.log('plant.service.add() begin...');
 
         let bodyString = JSON.stringify(plant);
-        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        headers.append('Authorization', 'bearer ' + this._authService.getToken());
+
         let options = new RequestOptions({ headers: headers });
 
         console.log('plant.service.add(), bodyString: ' + bodyString);
@@ -81,7 +81,10 @@ export class PlantService {
         console.log('plant.service.update() begin...');
 
         let bodyString = JSON.stringify(plant);
-        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        headers.append('Authorization', 'bearer ' + this._authService.getToken());
+
         let options = new RequestOptions({ headers: headers });
 
         console.log('plant.service.update(), bodyString: ' + bodyString);
@@ -93,7 +96,10 @@ export class PlantService {
     delete(plant: IDTO_Plant): Observable<IDTO_Plant> {
         console.log('plant.service.delete() begin...');
 
-        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        headers.append('Authorization', 'bearer ' + this._authService.getToken());
+
         let options = new RequestOptions({ headers: headers });
 
         return this._http.delete(`${this.API_URL}/${plant.id}`, options)

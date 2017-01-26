@@ -1,0 +1,14 @@
+.img-login {
+    width: 200px;
+    padding: 25px;
+}
+
+.content-center {
+    text-align: center;
+}
+
+.container-login {
+    max-width: 400px;
+    min-width: 200px;
+    margin: auto;
+}

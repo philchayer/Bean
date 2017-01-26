@@ -3,6 +3,8 @@ export class Authentication {
     email: string = '';
     password: string = '';
     confirmPassword: string = '';
+    statusText: string = '';
+    token: string = '';
 
     constructor() { }
 }

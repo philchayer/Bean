@@ -12,7 +12,6 @@ using System.Web.Http.Description;
 
 namespace Bean.WebAPI.Controllers
 {
-    [Authorize]
     public class PlantsController : ApiController
     {
         private BeanContext dbContext = new BeanContext();
@@ -109,6 +108,7 @@ namespace Bean.WebAPI.Controllers
         }
 
         // POST: api/Plants
+        [Authorize]
         [HttpPost]
         [ResponseType(typeof(Plant))]
         public IHttpActionResult Post([FromBody]Plant plant)
@@ -142,6 +142,7 @@ namespace Bean.WebAPI.Controllers
         }
 
         // PUT: api/Plants/5
+        [Authorize]
         [HttpPut]
         [ResponseType(typeof(Plant))]
         public IHttpActionResult Put(int id, [FromBody]Plant plant)
@@ -173,6 +174,7 @@ namespace Bean.WebAPI.Controllers
         }
 
         // DELETE: api/Plants/5
+        [Authorize]
         [HttpDelete]
         [ResponseType(typeof(Plant))]
         public IHttpActionResult Delete(int id)

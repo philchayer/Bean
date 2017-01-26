@@ -87,8 +87,12 @@ button.close {
     font-size: 17px;
 }
 
-.btn-form{
+.btn-form {
     width: 90px;
+}
+
+.btn-auth {
+    margin-top: 5px;
 }
 
 .form-control {

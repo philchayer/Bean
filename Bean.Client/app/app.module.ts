@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { WelcomeComponent } from './home/welcome.component';
 import { PlantModule } from './plants/plant.module';
 import { AuthenticationComponent } from './auth/auth.component';
+import { AuthenticationLoginComponent } from './auth/auth-login.component';
 import { AuthenticationService } from './auth/auth.service';
 
 import { SharedModule } from './shared/shared.module';
@@ -17,20 +18,20 @@ import { SharedModule } from './shared/shared.module';
     FormsModule,
     RouterModule.forRoot([
       { path: 'welcome', component: WelcomeComponent },
+      { path: 'login', component: AuthenticationLoginComponent },
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
       { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
     ]),
     SharedModule,
-    PlantModule
+    PlantModule,
   ],
   declarations: [
     AppComponent,
     WelcomeComponent,
-    AuthenticationComponent
+    AuthenticationComponent,
+    AuthenticationLoginComponent
   ],
-  providers: [
-    AuthenticationService
-  ],
+  providers: [AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
