@@ -4,4 +4,5 @@ export interface IPlants {
     latinName: string;
     family: string;
     binder: string;
+    quantityOnHand: number;
 }
