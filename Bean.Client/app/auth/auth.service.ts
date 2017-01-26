@@ -13,8 +13,6 @@ export class AuthenticationService {
     readonly API_URL = 'http://localhost:21709/';
     API_AUTH_URL = this.API_URL + 'api/Account';
 
-    public isLoggedIn: boolean = false;
-
     constructor(private _http: Http) { }
 
     // todo: manage error handling
@@ -24,7 +22,7 @@ export class AuthenticationService {
         return Observable.throw(error.json().error || 'Server error');
     }
 
-    login(auth: Authentication): Observable<Authentication> {
+    login(auth: Authentication): Observable<boolean> {
         console.log('auth.service.login() begin...');
 
         let param = new URLSearchParams();
@@ -38,12 +36,18 @@ export class AuthenticationService {
         return this._http.post(`${this.API_URL}/Token`, param, options)
             .map((data) => {
                 if (data.status == 200) {
-                    auth.token = data.json().access_token;
+                    localStorage.setItem('isLoggedIn', 'true');
+                    localStorage.setItem('token', data.json().access_token);
                     auth.statusText = '';
                 }
-                return auth;
+                return true;
             })
             .catch((this.handleError));
+    }
+
+    logout() {
+        localStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('token');
     }
 
     register(auth: Authentication): Observable<Authentication> {
@@ -65,6 +69,13 @@ export class AuthenticationService {
 
     getToken(): string {
         return localStorage.getItem('token');
+    }
+
+    isLoggedIn(): boolean {
+
+        let isLoggedIn: boolean = (localStorage.getItem('isLoggedIn') === 'true');
+
+        return isLoggedIn;
     }
 
 }

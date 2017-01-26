@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Response } from '@angular/http';
-import { Subscription } from 'rxjs/Subscription';
 
 import { AuthenticationService } from './auth.service';
 
@@ -20,13 +18,13 @@ export class AuthenticationComponent implements OnInit {
         console.log('auth.component.logout() begin ...');
 
         localStorage.removeItem('token');
-        this._auth.isLoggedIn = false;
+        this._auth.logout();
 
         console.log('auth.component.logout() end');
     }
 
     isLoggedIn(): boolean{
-        return this._auth.isLoggedIn;
+        return this._auth.isLoggedIn();
     }
 
 

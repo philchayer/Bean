@@ -33,18 +33,14 @@ export class AuthenticationLoginComponent implements OnInit {
         console.log('auth.component.login() begin...');
 
         this._authService.login(this.auth)
-            .subscribe(response => this.onLogin(response),
+            .subscribe(auth => this.onLogin(auth),
             error => this.message = <any>error);
 
         console.log('auth.component.login() end');
     }
 
-    private onLogin(auth: Authentication) {
+    private onLogin(successful: boolean) {
         console.log('auth.component.onLogin() begin...');
-
-        this._authService.isLoggedIn = true;
-        localStorage.setItem('token', auth.token);
-
         this._location.back();
     }
 
@@ -62,6 +58,5 @@ export class AuthenticationLoginComponent implements OnInit {
         console.log('registration successful!');
 
         this.auth = auth;
-        this._authService.isLoggedIn = true;
     }
 }
