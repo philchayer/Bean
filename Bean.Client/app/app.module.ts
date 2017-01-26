@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { WelcomeComponent } from './home/welcome.component';
+import { HomeComponent } from './home/home.component';
 import { PlantModule } from './plants/plant.module';
 import { AuthenticationComponent } from './auth/auth.component';
 import { AuthenticationLoginComponent } from './auth/auth-login.component';
@@ -17,17 +17,17 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: 'welcome', component: WelcomeComponent },
+      { path: 'home', component: HomeComponent },
       { path: 'login', component: AuthenticationLoginComponent },
-      { path: '', redirectTo: 'welcome', pathMatch: 'full' },
-      { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: '**', redirectTo: 'home', pathMatch: 'full' }
     ]),
     SharedModule,
     PlantModule,
   ],
   declarations: [
     AppComponent,
-    WelcomeComponent,
+    HomeComponent,
     AuthenticationComponent,
     AuthenticationLoginComponent
   ],
