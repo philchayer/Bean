@@ -19,7 +19,7 @@
     <div class='has-error' *ngIf='errorMessage'>{{errorMessage}}</div>
 
     <div class='table-responsive'>
-        <table class='table' *ngIf='dto_plants && dto_plants.length'>
+        <table class='table' *ngIf='plants && plants.length'>
             <thead>
                 <tr>
                     <th class="col-md-4">Plant</th>
@@ -31,7 +31,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor='let plant of dto_plants | plantFilter: listFilter'>
+                <tr *ngFor='let plant of plants | plantFilter: listFilter'>
                     <td [routerLink]="['/plant', plant.id]">{{ plant.name }}</td>
                     <td [routerLink]="['/plant', plant.id]">{{ plant.latinName }}</td>
                     <td [routerLink]="['/plant', plant.id]">{{ plant.family }}</td>

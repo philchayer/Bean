@@ -6,15 +6,13 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 
 import { Plant } from './plant';
-import { IDTO_Plant } from './dto_plant';
+import { IPlants } from './plants';
 import { AuthenticationService } from '../auth/auth.service';
+
+import { Service } from '../shared/const';
 
 @Injectable()
 export class PlantService {
-
-    //private _plantApiUrl = 'api/plants/plants.json';
-    private API_URL = 'http://localhost:21709/api/plants';
-
     constructor(private _http: Http,
         private _authService: AuthenticationService) { }
 
@@ -24,14 +22,8 @@ export class PlantService {
         return Observable.throw(error.json().error || 'Server error');
     }
 
-    gets(): Observable<Plant[]> {
-        return this._http.get(this.API_URL)
-            .map((response: Response) => <Plant[]>response.json())
-            .catch(this.handleError);
-    }
-
-    gets_dto(): Observable<IDTO_Plant[]> {
-        console.log('plant.service.gets_dto() begin...');
+    gets(): Observable<IPlants[]> {
+        console.log('plant.service.gets() begin...');
 
         // insert search param
         // let params: URLSearchParams = new URLSearchParams();
@@ -41,8 +33,8 @@ export class PlantService {
         let options = new RequestOptions({ headers: headers });
 
         //, {search: params}
-        return this._http.get(this.API_URL, options)
-            .map((response: Response) => <IDTO_Plant[]>response.json())
+        return this._http.get(Service.PLANT_API_URL, options)
+            .map((response: Response) => <IPlants[]>response.json())
             .catch(this.handleError);
     }
 
@@ -53,7 +45,7 @@ export class PlantService {
         let params: URLSearchParams = new URLSearchParams();
         params.set('id', id.toString());
 
-        return this._http.get(this.API_URL, { search: params })
+        return this._http.get(Service.PLANT_API_URL, { search: params })
             .map((response: Response) => <Plant>response.json())
             .do(data => console.log('plant.service.get(id) data: ' + JSON.stringify(data)))
             .catch(this.handleError);
@@ -71,7 +63,7 @@ export class PlantService {
 
         console.log('plant.service.add(), bodyString: ' + bodyString);
 
-        return this._http.post(this.API_URL, bodyString, options)
+        return this._http.post(Service.PLANT_API_URL, bodyString, options)
             .map((response: Response) => response.json())
             .do(data => console.log('plant.service.add(), data: ' + data))
             .catch(this.handleError);
@@ -89,11 +81,11 @@ export class PlantService {
 
         console.log('plant.service.update(), bodyString: ' + bodyString);
 
-        return this._http.put(`${this.API_URL}/${plant.id}`, bodyString, options)
+        return this._http.put(`${Service.PLANT_API_URL}/${plant.id}`, bodyString, options)
             .catch(this.handleError);
     }
 
-    delete(plant: IDTO_Plant): Observable<IDTO_Plant> {
+    delete(plant: IPlants): Observable<IPlants> {
         console.log('plant.service.delete() begin...');
 
         let headers = new Headers();
@@ -102,7 +94,7 @@ export class PlantService {
 
         let options = new RequestOptions({ headers: headers });
 
-        return this._http.delete(`${this.API_URL}/${plant.id}`, options)
+        return this._http.delete(`${Service.PLANT_API_URL}/${plant.id}`, options)
             .catch(this.handleError);
     }
 }

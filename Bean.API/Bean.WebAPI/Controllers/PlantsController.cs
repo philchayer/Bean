@@ -26,7 +26,7 @@ namespace Bean.WebAPI.Controllers
                 var plants = dbContext.Plants
                                 .Where(plant => plant.Status == Status.Enabled)
                                 .Select(
-                                    plant => new DTO_Plants()
+                                    plant => new Plants()
                                     {
                                         Id = plant.Id,
                                         Name = plant.Name,
@@ -55,7 +55,7 @@ namespace Bean.WebAPI.Controllers
                 var plants = dbContext.Plants
                            .Where(plant => plant.Status == Status.Enabled)
                            .Select(
-                               plant => new DTO_Plants()
+                               plant => new Plants()
                                {
                                    Id = plant.Id,
                                    Name = plant.Name,

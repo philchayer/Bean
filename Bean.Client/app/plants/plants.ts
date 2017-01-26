@@ -1,4 +1,4 @@
-export interface IDTO_Plant {
+export interface IPlants {
     id: number;
     name: string;
     latinName: string;

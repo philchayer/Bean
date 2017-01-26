@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bean.DTO
 {
-    public class DTO_Plants
+    public class Plants
     {
         public int Id { get; set; }
 

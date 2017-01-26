@@ -6,13 +6,10 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 
 import { Authentication } from './auth';
+import { Service } from '../shared/const';
 
 @Injectable()
 export class AuthenticationService {
-
-    readonly API_URL = 'http://localhost:21709/';
-    API_AUTH_URL = this.API_URL + 'api/Account';
-
     constructor(private _http: Http) { }
 
     // todo: manage error handling
@@ -33,7 +30,7 @@ export class AuthenticationService {
         let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
         let options = new RequestOptions({ headers: headers });
 
-        return this._http.post(`${this.API_URL}/Token`, param, options)
+        return this._http.post(Service.TOKEN_URL, param, options)
             .map((data) => {
                 if (data.status == 200) {
                     localStorage.setItem('isLoggedIn', 'true');
@@ -62,7 +59,7 @@ export class AuthenticationService {
 
         console.log(bodyString);
 
-        return this._http.post(`${this.API_AUTH_URL}/Register`, bodyString, options)
+        return this._http.post(Service.REGISTER_API_URL, bodyString, options)
             .do(data => console.log('auth.service.register(), data: ' + data))
             .catch(this.handleError);
     }
