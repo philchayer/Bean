@@ -18,7 +18,7 @@ namespace Bean.WebAPI.Controllers
 
         // GET: api/Plants
         [HttpGet]
-        [ResponseType(typeof(Plant))]
+        [ResponseType(typeof(Plants))]
         public IHttpActionResult Get()
         {
             try
@@ -30,9 +30,9 @@ namespace Bean.WebAPI.Controllers
                                     {
                                         Id = plant.Id,
                                         Name = plant.Name,
-                                        LatinName = plant.LatinName,
+                                        LatinName = plant.LatinName == null ? "" : plant.LatinName,
                                         Family = plant.Family.Name,
-                                        Binder = plant.Family.Binder.Description
+                                        Binder = plant.Family.Binder.Description == null ? "" : plant.Family.Binder.Description
                                     }).ToList();
 
                 return Ok(plants);
@@ -45,9 +45,9 @@ namespace Bean.WebAPI.Controllers
             }
         }
 
-        // GET: api/Plants/search?strign
+        // GET: api/Plants/search?string
         [HttpGet]
-        [ResponseType(typeof(Plant))]
+        [ResponseType(typeof(Plants))]
         public IHttpActionResult Get(string search)
         {
             try
@@ -59,9 +59,9 @@ namespace Bean.WebAPI.Controllers
                                {
                                    Id = plant.Id,
                                    Name = plant.Name,
-                                   LatinName = plant.LatinName,
+                                   LatinName = plant.LatinName == null ? "" : plant.LatinName,
                                    Family = plant.Family.Name,
-                                   Binder = plant.Family.Binder.Description
+                                   Binder = plant.Family.Binder.Description == null ? "" : plant.Family.Binder.Description
                                })
                            .Where(plant => plant.Family.Contains(search));
 
