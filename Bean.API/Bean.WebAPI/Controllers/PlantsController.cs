@@ -2,6 +2,7 @@
 using Bean.DTO;
 using Bean.POCO;
 using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
@@ -22,7 +23,7 @@ namespace Bean.WebAPI.Controllers
         {
             try
             {
-                var plants = dbContext.Plants
+                List<Plants> plants = dbContext.Plants
                                 .Where(plant => plant.Status == Status.Enabled)
                                 .Select(
                                     plant => new Plants()
