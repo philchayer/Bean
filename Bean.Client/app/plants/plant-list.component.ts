@@ -26,7 +26,7 @@ export class PlantListComponent implements OnInit {
     }
 
     onDelete(plant: IPlants): boolean {
-        let result = window.confirm(`Are you sure you want to delete ${plant.name}?`);
+        let result = window.confirm(`Are you sure you want to delete the plant ${plant.name}?`);
 
         if (result)
             this._plantService.delete(plant).subscribe(
