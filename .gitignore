@@ -13,3 +13,4 @@ obj
 packages
 TestResults
 debug.log
+npm-debug.log
