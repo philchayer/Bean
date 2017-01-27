@@ -42,6 +42,10 @@ tr:hover td {
     border-top: 5px solid #333131;
 }
 
+.table-responsive.max-height {
+    max-height: 510px;
+}
+
 .panel {
     margin-bottom: 5px;
 }
