@@ -2,6 +2,7 @@
 using Bean.DTO;
 using Bean.POCO;
 using System;
+using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
 using System.Linq;
@@ -127,7 +128,7 @@ namespace Bean.WebAPI.Controllers
                 if (!ModelState.IsValid)
                     return BadRequest(ModelState);
 
-                dbContext.Entry(plant).State = System.Data.Entity.EntityState.Modified;
+                dbContext.Entry(plant).State = EntityState.Modified;
                 dbContext.SaveChanges();
 
                 return Ok();
@@ -161,7 +162,7 @@ namespace Bean.WebAPI.Controllers
                 if (!ModelState.IsValid)
                     return BadRequest(ModelState);
 
-                dbContext.Entry(plant).State = System.Data.Entity.EntityState.Added;
+                dbContext.Entry(plant).State = EntityState.Added;
                 dbContext.SaveChanges();
 
                 return Created<Plant>(Request.RequestUri + plant.Id.ToString(), plant);
@@ -181,22 +182,20 @@ namespace Bean.WebAPI.Controllers
         {
             try
             {
-                var plant = dbContext.Plants.FirstOrDefault(p => p.Id == id && p.Status == Status.Enabled);
+                Plant plant = dbContext.Plants.FirstOrDefault(p => p.Id == id && p.Status == Status.Enabled);
 
-                if (plant != null)
-                {
-                    // todo: REMOVE temporary hardcoded value
-                    plant.Family = dbContext.Families.FirstOrDefault(family => family.Id == 1);
-                    plant.FamilyId = 1;
-
-
-
-                    plant.Status = Status.Deleted;
-                    dbContext.Entry(plant).State = System.Data.Entity.EntityState.Modified;
-                    dbContext.SaveChanges();
-                }
-                else
+                if (plant == null)
                     return NotFound();
+
+                // todo: REMOVE temporary hardcoded value
+                plant.Family = dbContext.Families.FirstOrDefault(family => family.Id == 1);
+                plant.FamilyId = 1;
+
+
+
+                plant.Status = Status.Deleted;
+                dbContext.Entry(plant).State = EntityState.Modified;
+                dbContext.SaveChanges();
 
                 return Ok();
             }
