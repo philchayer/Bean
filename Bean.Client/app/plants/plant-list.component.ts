@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Plant } from './plant';
 import { IPlants } from './plants';
 import { PlantService } from './plant.service';
 
