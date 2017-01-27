@@ -107,6 +107,38 @@ namespace Bean.WebAPI.Controllers
             }
         }
 
+        // PUT: api/Plants/5
+        [Authorize]
+        [HttpPut]
+        [ResponseType(typeof(Plant))]
+        public IHttpActionResult Put(int id, [FromBody]Plant plant)
+        {
+            try
+            {
+                // todo: REMOVE temporary hardcoded value
+                plant.Family = dbContext.Families.FirstOrDefault(family => family.Id == 1);
+
+
+
+                // validation
+                if (plant == null)
+                    return BadRequest("Plant cannot be null");
+
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
+
+                dbContext.Entry(plant).State = System.Data.Entity.EntityState.Modified;
+                dbContext.SaveChanges();
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                return InternalServerError(ex);
+            }
+        }
+
         // POST: api/Plants
         [Authorize]
         [HttpPost]
@@ -133,38 +165,6 @@ namespace Bean.WebAPI.Controllers
                 dbContext.SaveChanges();
 
                 return Created<Plant>(Request.RequestUri + plant.Id.ToString(), plant);
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
-                return InternalServerError(ex);
-            }
-        }
-
-        // PUT: api/Plants/5
-        [Authorize]
-        [HttpPut]
-        [ResponseType(typeof(Plant))]
-        public IHttpActionResult Put(int id, [FromBody]Plant plant)
-        {
-            try
-            {
-                // todo: REMOVE temporary hardcoded value
-                plant.Family = dbContext.Families.FirstOrDefault(family => family.Id == 1);
-
-
-
-                // validation
-                if (plant == null)
-                    return BadRequest("Plant cannot be null");
-
-                if (!ModelState.IsValid)
-                    return BadRequest(ModelState);
-
-                dbContext.Entry(plant).State = System.Data.Entity.EntityState.Modified;
-                dbContext.SaveChanges();
-
-                return Ok();
             }
             catch (Exception ex)
             {
@@ -210,7 +210,15 @@ namespace Bean.WebAPI.Controllers
                 Debug.WriteLine(ex);
                 return InternalServerError(ex);
             }
+        }
 
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                dbContext.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }
