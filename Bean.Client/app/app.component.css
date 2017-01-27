@@ -116,3 +116,11 @@ textarea {
 .glyphicon.white {
     color: #fff;
 }
+
+.error {
+    background-color: #d97c7c;
+    color: #211e1e;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+}
