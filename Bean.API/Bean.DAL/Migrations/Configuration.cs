@@ -70,7 +70,8 @@ namespace Bean.DAL.Migrations
                         Id = 1,
                         FamilyId = 1,
                         Family = Solanaceae,
-                        Name = "Tomate cerise 'Honeybee'",
+                        Name = "Tomate cerise",
+                        Species = "Honeybee",
                         PlantingIN = new DateTime(2016, 03, 25),
                         Status = Status.Enabled
                     });
@@ -81,7 +82,8 @@ namespace Bean.DAL.Migrations
                         Id = 2,
                         FamilyId = 2,
                         Family = Brassicaceae,
-                        Name = "Chou 'Loughton'",
+                        Name = "Chou",
+                        Species = "Loughton",
                         DistanceBetweenPlants = 18,
                         DistanceBetweenRows = 24,
                         IsColdHardy = true,

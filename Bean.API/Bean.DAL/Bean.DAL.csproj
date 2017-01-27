@@ -54,6 +54,10 @@
     <Compile Include="Migrations\201701121933426_Initial.Designer.cs">
       <DependentUpon>201701121933426_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701271338281_NewPlantPropertySpecies.cs" />
+    <Compile Include="Migrations\201701271338281_NewPlantPropertySpecies.Designer.cs">
+      <DependentUpon>201701271338281_NewPlantPropertySpecies.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="BeanContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -71,6 +75,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201701121933426_Initial.resx">
       <DependentUpon>201701121933426_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701271338281_NewPlantPropertySpecies.resx">
+      <DependentUpon>201701271338281_NewPlantPropertySpecies.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

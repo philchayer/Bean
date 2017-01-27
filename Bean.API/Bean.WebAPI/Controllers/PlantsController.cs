@@ -29,10 +29,12 @@ namespace Bean.WebAPI.Controllers
                                     plant => new Plants()
                                     {
                                         Id = plant.Id,
-                                        Name = plant.Name,
+                                        PlantName = plant.Name,
                                         LatinName = plant.LatinName == null ? "" : plant.LatinName,
+                                        Species = plant.Species,
                                         Family = plant.Family.Name,
-                                        Binder = plant.Family.Binder.Description == null ? "" : plant.Family.Binder.Description
+                                        Binder = plant.Family.Binder.Description == null ? "" : plant.Family.Binder.Description,
+                                        QuantityOnHand = plant.QuantityOnHand
                                     }).ToList();
 
                 return Ok(plants);
@@ -58,10 +60,12 @@ namespace Bean.WebAPI.Controllers
                                plant => new Plants()
                                {
                                    Id = plant.Id,
-                                   Name = plant.Name,
+                                   PlantName = plant.Name,
                                    LatinName = plant.LatinName == null ? "" : plant.LatinName,
+                                   Species = plant.Species,
                                    Family = plant.Family.Name,
-                                   Binder = plant.Family.Binder.Description == null ? "" : plant.Family.Binder.Description
+                                   Binder = plant.Family.Binder.Description == null ? "" : plant.Family.Binder.Description,
+                                   QuantityOnHand = plant.QuantityOnHand
                                })
                            .Where(plant => plant.Family.Contains(search));
 

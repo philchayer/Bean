@@ -32,6 +32,10 @@ namespace Bean.POCO
         public string LatinName { get; set; }
 
         [DataMember]
+        [MaxLength(50, ErrorMessage = "Species must be least then 50 characters")]
+        public string Species { get; set; }
+
+        [DataMember]
         public DateTime? PlantingIN { get; set; }
 
         [DataMember]
@@ -78,7 +82,7 @@ namespace Bean.POCO
         public List<Plant> HarmfulPlants { get; set; }
 
         [DataMember]
-        [Required]
+        [Required(ErrorMessage = "Status is required")]
         public Status Status { get; set; }
 
     }
