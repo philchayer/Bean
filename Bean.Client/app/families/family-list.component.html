@@ -1,0 +1,41 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        {{pageTitle}}
+    </div>
+</div>
+
+<div class='panel-body'>
+    <div class="form-horizontal">
+        <div class='form-group'>
+            <div class='col-md-4'>
+                <input type='text' id="inputFilter" [(ngModel)]='listFilter' class="form-control" placeholder="Filter by" />
+            </div>
+            <div class="col-md-2 col-md-offset-6 text-right">
+                <a class="btn btn-info" [routerLink]="['/family', 0]"><i class="glyphicon glyphicon-plus"></i> Add family</a>
+            </div>
+        </div>
+    </div>
+
+    <div class='has-error' *ngIf='errorMessage'>{{errorMessage}}</div>
+
+    <div class='table-responsive max-height'>
+        <table class='table' *ngIf='families && families.length'>
+            <thead>
+                <tr>
+                    <th class="col-md-5">Family</th>
+                    <th class="col-md-5">Binder</th>
+                    <th class="col-md-1 text-right">On Hand</th>
+                    <th class="col-md-1"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let family of families | familyFilter: listFilter'>
+                    <td [routerLink]="['/family', family.id]">{{ family.name }}</td>
+                    <td [routerLink]="['/family', family.id]">{{ family.binder }}</td>
+                    <td [routerLink]="['/family', family.id]" class="text-right">{{ family.quantityOnHand == 0 ? "" : family.quantityOnHand }}</td>
+                    <td class="text-right"><i class="glyphicon glyphicon-trash"(click)='onDelete(family)'></i></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { PlantModule } from './plants/plant.module';
+import { FamilyModule } from './families/family.module';
 import { AuthenticationComponent } from './auth/auth.component';
 import { AuthenticationLoginComponent } from './auth/auth-login.component';
 import { AuthenticationService } from './auth/auth.service';
@@ -24,6 +25,7 @@ import { SharedModule } from './shared/shared.module';
     ]),
     SharedModule,
     PlantModule,
+    FamilyModule
   ],
   declarations: [
     AppComponent,
