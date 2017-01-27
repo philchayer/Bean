@@ -18,7 +18,7 @@
 
     <div class='has-error' *ngIf='errorMessage'>{{errorMessage}}</div>
 
-    <div class='table-responsive'>
+    <div class='table-responsive max-height'>
         <table class='table' *ngIf='plants && plants.length'>
             <thead>
                 <tr>
@@ -37,7 +37,7 @@
                     <td [routerLink]="['/plant', plant.id]">{{ plant.family }}</td>
                     <td [routerLink]="['/plant', plant.id]">{{ plant.binder }}</td>
                     <td [routerLink]="['/plant', plant.id]" class="text-right">{{ plant.quantityOnHand }}</td>
-                    <td class="text-right"><i class="glyphicon glyphicon-trash"(click)='onDelete(plant)'></i></td>
+                    <td class="text-right"><i class="glyphicon glyphicon-trash" (click)='onDelete(plant)'></i></td>
                 </tr>
             </tbody>
         </table>

@@ -20,8 +20,6 @@ export class PlantListComponent implements OnInit {
         this._plantService.gets()
             .subscribe(plants => this.plants = plants,
             error => this.errorMessage = <any>error);
-
-        console.log('plant-list.component.ngOnInit, gets: ' + this.plants);
     }
 
     onDelete(plant: IPlants): boolean {
