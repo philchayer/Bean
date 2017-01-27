@@ -77,8 +77,8 @@ tr:hover td {
 
 button.close {
     font-size: 1.1em;
-    filter: alpha(opacity=70);
-    opacity: .7;
+    filter: alpha(opacity=80);
+    opacity: .8;
     text-shadow: none;
 }
 
@@ -107,4 +107,8 @@ textarea {
 
 .checkbox input[type="checkbox"] {
     margin-left: 0px;
+}
+
+.glyphicon.white {
+    color: #fff;
 }
