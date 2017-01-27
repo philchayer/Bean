@@ -3,6 +3,7 @@ using Bean.DAL;
 using System;
 using Bean.DTO;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace BeanConsoleApp
 {
@@ -11,12 +12,56 @@ namespace BeanConsoleApp
         static void Main(string[] args)
         {
             //InsertBinder();
-            Get();
+            //GetPlants();
+            GetFamilies();
 
             Console.ReadKey();
         }
 
-        private static void Get()
+        private static void GetFamilies()
+        {
+            try
+            {
+                using (var dbContext = new BeanContext())
+                {
+
+                    List<Families> families = dbContext.Families
+                                                .Include("Plants")
+                                                .Include("Binder")
+                                                .Where(family => family.Status == Status.Enabled).ToList()
+                                                .Select(
+                                                    family => new Families()
+                                                    {
+                                                        Name = family.Name,
+                                                        Binder = family.Binder != null ? family.Binder.Description : "",
+                                                        QuantityOnHand = family.Plants.Sum(plant => plant.QuantityOnHand)
+                                                    }).ToList();
+
+                    foreach (Families family in families)
+                    {
+                        Console.WriteLine($"Name: {family.Name}, Quantity: {family.QuantityOnHand}, Binder: {family.Binder}");
+                    }
+
+                    //Family family = dbContext.Families.FirstOrDefault(f => f.Id == 1);
+                    //var quantity = 
+                    //    dbContext.Plants
+                    //        .GroupBy(plant => plant.FamilyId == family.Id)
+                    //        .Select(group => group.Sum(plant => plant.QuantityOnHand)).ToList();
+
+                    //Console.WriteLine(quantity);
+                    var fam = dbContext.Families.Include("Plants").FirstOrDefault();
+                }
+
+                Console.WriteLine("GetFamilies completed");
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
+        private static void GetPlants()
         {
             Console.WriteLine("Getting plants...");
 
