@@ -10,6 +10,9 @@ import { Service } from '../shared/const';
 
 @Injectable()
 export class AuthenticationService {
+    readonly TOKEN_KEY: string = 'token';
+    readonly ISLOGGEDIN_KEY:string = 'isLoggedIn';
+
     constructor(private _http: Http) { }
 
     // todo: manage error handling
@@ -33,8 +36,8 @@ export class AuthenticationService {
         return this._http.post(Service.TOKEN_URL, param, options)
             .map((data) => {
                 if (data.status == 200) {
-                    localStorage.setItem('isLoggedIn', 'true');
-                    localStorage.setItem('token', data.json().access_token);
+                    localStorage.setItem(this.ISLOGGEDIN_KEY, 'true');
+                    localStorage.setItem(this.TOKEN_KEY, data.json().access_token);
                     auth.statusText = '';
                 }
                 return true;
@@ -43,8 +46,8 @@ export class AuthenticationService {
     }
 
     logout() {
-        localStorage.removeItem('isLoggedIn');
-        localStorage.removeItem('token');
+        localStorage.removeItem(this.ISLOGGEDIN_KEY);
+        localStorage.removeItem(this.TOKEN_KEY);
     }
 
     register(auth: Authentication): Observable<Authentication> {
@@ -65,12 +68,12 @@ export class AuthenticationService {
     }
 
     getToken(): string {
-        return localStorage.getItem('token');
+        return localStorage.getItem(this.TOKEN_KEY);
     }
 
     isLoggedIn(): boolean {
 
-        let isLoggedIn: boolean = (localStorage.getItem('isLoggedIn') === 'true');
+        let isLoggedIn: boolean = (localStorage.getItem(this.ISLOGGEDIN_KEY) === 'true');
 
         return isLoggedIn;
     }
