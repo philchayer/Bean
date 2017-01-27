@@ -5,6 +5,7 @@ interface IPlant {
     id: number;
     name: string;
     latinName: string;
+    species: string;
     familyId: number;
     family: string;
     binder: string;
@@ -31,6 +32,7 @@ export class Plant implements IPlant, IBaseObject {
     id = 0;
     name = "";
     latinName = "";
+    species = "";
     familyId = 0;
     family = "";
     binder = "";

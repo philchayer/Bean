@@ -7,7 +7,7 @@
                 <span>{{plant.id == 0 ? "Adding new plant" : plant.name}}</span>
                 <span class="badge" style="margin-left: 10px"> {{plant.id == 0 ? "click to add quantity on hand" : plant.quantityOnHand}} </span>
                 <button type="button" class="close" aria-label="Close" [routerLink]="['/plants']">
-                    <span aria-hidden="true"><i class="glyphicon glyphicon-remove"></i></span>
+                    <span aria-hidden="true"><i class="glyphicon glyphicon-remove white"></i></span>
                 </button>
             </div>
         </div>
@@ -25,20 +25,29 @@
                         </div>-->
                     </div>
                     <div>
+                        <label for="species" class="col-md-2 control-label">Species</label>
+                        <div class="col-md-4">
+                            <input name="species" type="text" maxlength="50" class="form-control" [(ngModel)]='plant.species' />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div>
                         <label for="latinName" class="col-md-2 control-label">Latin name</label>
                         <div class="col-md-4">
                             <input name="latinName" type="text" maxlength="50" class="form-control" [(ngModel)]='plant.latinName' />
                         </div>
                     </div>
-                </div>
-                <div class="form-group">
                     <!--How to bind a select control from pluralsight:
                         https://app.pluralsight.com/player?course=angular-2-forms&author=mark-zamoyta&name=angular-2-forms-m3&clip=7&mode=live
-                        -->
+                    -->
                     <label for="family" class="col-md-2 control-label">Family</label>
                     <div class="col-md-4">
                         <input name="family" type="text" class="form-control" [(ngModel)]='plant.family' />
                     </div>
+                </div>
+                <div class="form-group">
+
                     <label for="plantingIn" class="col-md-2 control-label">Planting IN</label>
                     <div class="col-md-4">
                         <input name="plantingIn" type="date" class="form-control" [(ngModel)]='plant.plantingIn' />
