@@ -2,12 +2,10 @@
 using Bean.DTO;
 using Bean.POCO;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
 using System.Linq;
 using System.Web.Http;
-using System.Web.Http.Cors;
 using System.Web.Http.Description;
 
 namespace Bean.WebAPI.Controllers
@@ -74,7 +72,6 @@ namespace Bean.WebAPI.Controllers
             catch (Exception ex)
             {
                 return InternalServerError(ex);
-                throw;
             }
         }
 
@@ -107,7 +104,6 @@ namespace Bean.WebAPI.Controllers
             catch (Exception ex)
             {
                 return InternalServerError(ex);
-                throw;
             }
         }
 
