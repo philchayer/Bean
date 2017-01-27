@@ -12,6 +12,9 @@ using System.Web.Http.Description;
 
 namespace Bean.WebAPI.Controllers
 {
+    /// <summary>
+    /// The controller for Plant and Plants
+    /// </summary>
     public class PlantsController : ApiController
     {
         private BeanContext dbContext = new BeanContext();
@@ -35,7 +38,7 @@ namespace Bean.WebAPI.Controllers
                                         Family = plant.Family.Name,
                                         Binder = plant.Family.Binder.Description == null ? "" : plant.Family.Binder.Description,
                                         QuantityOnHand = plant.QuantityOnHand
-                                    }).ToList();
+                                    }).OrderBy(plant => plant.PlantName).ToList();
 
                 return Ok(plants);
 
