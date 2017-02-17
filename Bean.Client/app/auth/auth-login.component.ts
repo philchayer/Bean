@@ -3,7 +3,6 @@ import { Location } from '@angular/common';
 
 import { Authentication } from './auth';
 import { AuthenticationService } from './auth.service';
-import { AuthenticationComponent } from './auth.component';
 
 @Component({
     moduleId: module.id,

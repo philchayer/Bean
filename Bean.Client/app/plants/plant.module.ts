@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { PlantListComponent } from './plant-list.component';
 import { PlantDetailComponent } from './plant-detail.component';
 import { PlantFilterPipe } from './plant-filter.pipe';
-import { PlantDetailGuard } from './plant-guard.service'
+import { PlantDetailGuard } from './plant-guard.service';
 import { PlantService } from './plant.service';
 
 import { SharedModule } from '../shared/shared.module';

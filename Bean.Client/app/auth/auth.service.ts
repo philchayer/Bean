@@ -11,7 +11,7 @@ import { Service } from '../shared/const';
 @Injectable()
 export class AuthenticationService {
     readonly TOKEN_KEY: string = 'token';
-    readonly ISLOGGEDIN_KEY:string = 'isLoggedIn';
+    readonly ISLOGGEDIN_KEY: string = 'isLoggedIn';
 
     constructor(private _http: Http) { }
 
@@ -35,7 +35,7 @@ export class AuthenticationService {
 
         return this._http.post(Service.TOKEN_URL, param, options)
             .map((data) => {
-                if (data.status == 200) {
+                if (data.status === 200) {
                     localStorage.setItem(this.ISLOGGEDIN_KEY, 'true');
                     localStorage.setItem(this.TOKEN_KEY, data.json().access_token);
                     auth.statusText = '';

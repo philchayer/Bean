@@ -3,31 +3,31 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs/Subscription';
 
-import { Plant } from './plant';
-import { PlantService } from './plant.service';
+import { Binder } from './binder';
+import { BinderService } from './binder.service';
 
 @Component({
     moduleId: module.id,
-    templateUrl: 'plant-detail.component.html'
+    templateUrl: 'binder-detail.component.html'
 })
-export class PlantDetailComponent implements OnInit, OnDestroy {
+export class BinderDetailComponent implements OnInit, OnDestroy {
 
-    pageTitle: string = 'Plant Detail';
+    pageTitle: string = 'Binder Detail'
     errorMessage: string;
-    plant: Plant;
+    binder: Binder;
 
     private subscription: Subscription;
 
     constructor(private _route: ActivatedRoute,
         private _router: Router,
-        private _plantService: PlantService) {
+        private _binderService: BinderService) {
     }
 
     ngOnInit(): void {
         this.subscription = this._route.params.subscribe(
             params => {
                 let id = +params['id'];
-                this.getPlant(id);
+                this.getBinder(id);
             });
     }
 
@@ -35,33 +35,34 @@ export class PlantDetailComponent implements OnInit, OnDestroy {
         this.subscription.unsubscribe();
     }
 
-    getPlant(id: number) {
+    getBinder(id: number) {
         try {
-            this._plantService.get(id).subscribe(
-                plant => this.plant = plant,
+            this._binderService.get(id).subscribe(
+                binder => this.binder = binder,
                 error => this.errorMessage = <any>error);
-        } catch (error) {
+        }
+        catch (error) {
             this.errorMessage = error.toString();
         }
     }
 
     onSubmit(form: NgForm): void {
         // validations
-        if (form.invalid) {
+        if (form.invalid){
             alert('invalid data');
             return;
         }
 
-        if (this.plant.id === 0) {
-            this._plantService.add(this.plant).subscribe(
-                plant => this.plant = plant,
+        if (this.binder.id == 0)
+            this._binderService.add(this.binder).subscribe(
+                binder => this.binder = binder,
                 error => this.errorMessage = <any>error);
-        } else {
-            this._plantService.update(this.plant).subscribe(
-                plant => this.plant = plant,
+        else
+            this._binderService.update(this.binder).subscribe(
+                binder => this.binder = binder,
                 error => this.errorMessage = <any>error);
-        }
-        console.log('plant-detail.component.onSubmit() finished');
+
+        console.log('binder-detail.component.onSubmit() finished');
     }
 
 }

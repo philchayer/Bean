@@ -1,0 +1,33 @@
+<div class='has-error' *ngIf='errorMessage'>{{errorMessage}}</div>
+
+<div *ngIf='binder'>
+    <form #form="ngForm" (submit)="onSubmit(form)" novalidate>
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <span>{{binder.id == 0 ? "Adding new binder" : binder.description}}</span>
+                <button type="button" class="close" aria-label="Close" [routerLink]="['/binders']">
+                    <span aria-hidden="true"><i class="glyphicon glyphicon-remove white"></i></span>
+                </button>
+            </div>
+        </div>
+
+        <div class="panel-body">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <div [class.has-error]="description.invalid && description.dirty">
+                        <label for="description" class="col-md-2 control-label">Description</label>
+                        <div class="col-md-10">
+                            <input #name="ngModel" name="name" type="text" maxlength="500" pattern="...+" required class="form-control" [(ngModel)]='binder.description' />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer text-right">
+            <button type="reset" name="btnReset" class="btn btn-form btn-info" [routerLink]="['/binders']"><i class="glyphicon glyphicon-chevron-left"></i>Back</button>
+            <button type="submit" name="btnSubmit" class="btn btn-form btn-success" >
+                <i class="glyphicon glyphicon-floppy-disk"></i> Save
+            </button>
+        </div>
+    </form>
+</div>

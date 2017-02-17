@@ -12,7 +12,7 @@ import { FamilyService } from './family.service';
 })
 export class FamilyDetailComponent implements OnInit, OnDestroy {
 
-    pageTitle: string = 'Family Detail'
+    pageTitle: string = 'Family Detail';
     errorMessage: string;
     family: Family;
 
@@ -53,14 +53,16 @@ export class FamilyDetailComponent implements OnInit, OnDestroy {
             return;
         }
 
-        if (this.family.id == 0)
+        if (this.family.id == 0){
             this._familyService.add(this.family).subscribe(
                 family => this.family = family,
                 error => this.errorMessage = <any>error);
-        else
+        }
+        else {
             this._familyService.update(this.family).subscribe(
                 family => this.family = family,
                 error => this.errorMessage = <any>error);
+            }
 
         console.log('family-detail.component.onSubmit() finished');
     }
