@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { BinderListComponent } from './binder-list.component';
 import { BinderDetailComponent } from './binder-detail.component';
 import { BinderFilterPipe } from './binder-filter.pipe';
-import { BinderDetailGuard } from './binder-guard.service'
+import { BinderDetailGuard } from './binder-guard.service';
 import { BinderService } from './binder.service';
 
 import { SharedModule } from '../shared/shared.module';
